@@ -1,0 +1,101 @@
+/*
+
+Stylesheet for slidorion
+
+ */
+#slidorion {
+	width: 768px;			/* Set to slidorion width. Is equal to #slider + #accordion width */
+	height: 400px;			/* Set to slidorion height. Is equal to #slider and #accordion height */
+	position: relative;
+	left: 50%;
+	margin-left: -384px;
+	padding: 10px;
+	background: #cbcbcb;
+	border: 1px solid #bbb;
+	-webkit-box-shadow: 0 0 34px #bbb;
+	-moz-box-shadow: 0 0 34px #bbb;
+	box-shadow: 0 0 34px #bbb;
+}
+
+#slider {
+	width: 488px;			/* Set to slider width */
+	height: 400px;			/* Set to slider height */
+	position: relative;
+	float: left;
+	overflow: hidden;		/* Hides the animations */
+}
+
+.slider-image {
+	position: relative;
+}
+
+.slider-image img {
+	width: 488px;			/* Set to image width */
+	height: 400px;			/* Set to image height */
+	position: absolute;
+}
+
+#accordion {
+	width: 280px;			/* Set to accordion width */
+	height: 400px;			/* Set to image height */
+	font-family: Verdana;
+	background: #eee;
+	-webkit-box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
+	-moz-box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
+	box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
+	position: relative;
+	float: left;
+}
+
+#accordion .header {
+	height: 36px;
+	color: #333;
+	background: #ededed;
+	background: -moz-linear-gradient(top, #ededed 59%, #dcdcdc 100%);
+	background: -webkit-linear-gradient(top, #ededed 59%,#dcdcdc 100%);
+	background: -o-linear-gradient(top, #ededed 59%,#dcdcdc 100%);
+	background: -ms-linear-gradient(top, #ededed 59%,#dcdcdc 100%);
+	background: linear-gradient(top, #ededed 59%,#dcdcdc 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#dcdcdc',GradientType=0 );
+	border: none;
+	border-top: 1px solid #ccc;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+#accordion .header a {
+	background: none;
+	padding: 8px 14px;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 12px;
+	display: block;
+}
+
+#accordion .header a:hover {
+	background: #ededed;
+	cursor: pointer;
+}
+
+#accordion .header a.active {
+	border-bottom: none;
+	background-color: #676767 !important;
+	color: #fff;
+}
+
+#accordion .content {
+	height: 257px;			/* This height needs to be changed as it depends on the accordion height and number of tabs */
+	font-weight: bold;
+	font-size: 12px;
+	margin: 0;
+	padding: 16px;
+	border: none;
+	background: #d6d6d6;
+	background: -moz-linear-gradient(top, #d6d6d6 0%, #ffffff 10%);
+	background: -webkit-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+	background: -o-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+	background: -ms-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+	background: linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#ffffff',GradientType=0 );
+}

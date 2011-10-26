@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 
 <head>
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/jquery-ui.css" />
-	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.easing.js"></script>
 	
-	<link rel="stylesheet" href="css/slidorian.css" />
-    <script src="js/slidorian.js"></script>
+	<title>Slidorion, An Image jQuery Plugin | jQuery Slider and jQuery Accordion</title>
+	
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/slidorion.css" />
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+    <script src="js/jquery.slidorion.js"></script>
 	
     <script>
 	$(document).ready(function(){
-		$('#slidorian').slidorian();
+		$('#slidorion').slidorion();
 	});
+	function trackDownload(){_gaq.push(['_trackPageview', '/downloads/slidorion']);}
 	</script>
+	
 </head>
 
 <body>
 	
-	<div id="header"><h1>SLIDORIAN</h1></div>
+	<div id="header"><h1>SLIDORION</h1></div>
 	
-	<div id="slidorian">
+	<div id="slidorion">
 		
 		<div id="slider">
 			<div class="slider-image" rel="section1">
@@ -36,8 +39,8 @@
 			</div>
 		</div>
 		
-		<div id="accordian">
-			<div class="header"><a class="slider-link selected" rel="section1">Kung Fu Panda 2</a></div>
+		<div id="accordion">
+			<div class="header"><a class="slider-link" rel="section1">Kung Fu Panda 2</a></div>
 			<div class="content">
 				<p>In the Valley of Peace, Po Ping is revelling in his fulfilled dreams as he serves as the fabled Dragon Warrior protecting his home with his heroes now his closest friends. However, Po and company learn that the murderous Lord Shen of Gongman City is threatening the land with a fearsome new weapon that could mean the end of kung fu forever.</p>
 				<a href="http://www.imdb.com/title/tt1302011/">Read more</a>
@@ -56,122 +59,131 @@
 		
 	</div>
 	
+	<div id="download-box">
+		<a href="slidorion.zip" class="download" onClick="trackDownload()">Download</a>
+		<h3>Download the Slidorion now!</h3>
+		<h3>Contribute or tell me about issues on <a href="https://github.com/hollandben/slidorion" target="_blank">GitHub</a></h3>
+		<p>Slidorion was created by Ben Holland, student and part time web developer. <a href="http://www.twitter.com/hollandben" target="_blank">Follow me on Twitter</a> or <a href="http://www.ben-holland.co.uk/blog/" target="_blank">check out my blog</a> for other cool stuff and tutorials.</p>
+	</div>
+	
 	<div id="container">
 		
 		<div id="about">
-			<h2>The Slidorian</h2>
-			<h3>A combination of an image slider and an accordian, the Slidorian displays beautiful images along with a variable length description. With images linked to each tab, and accompanied by a large array of effects, the slidorian is a great alternative to the traditional jQuery slider.</h3>
-		</div>	
-		
-		<div id="download">
-			<h2>Download</h2>
-			<a href="slidorian.zip" class="download">Download</a>
-		</div>	
+			<h2>The Slidorion</h2>
+			<h3>A combination of an image slider and an accordion, the slidorion displays beautiful images along with a variable length description. With images linked to each tab, and accompanied by a large array of effects, the slidorion is a great alternative to the traditional jQuery slider.</h3>
+		</div>
 		
 		<div id="usage">
 			<h2>Usage</h2>
-			<h3>Import jQuery, jQuery UI and Slidorian</h3>
-			<xmp>
-	<link rel="stylesheet" href="css/slidorian.css" />
-	<link rel="stylesheet" href="css/jquery-ui.css" />
+			<h3>Import jQuery, jQuery UI and slidorion</h3>
+			<pre>
+&lt;link rel="stylesheet" href="css/slidorion.css" /&gt;
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.easing.js"></script>
-	<script src="js/slidorian.js"></script>
-			</xmp>
+&lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.easing.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.slidorion.js"&gt;&lt;/script&gt;
+			</pre>
 			<h3>HTML Structure</h3>
-			<xmp>
-	<div id="slidorian">
-		<div id="slider">
-			<div class="slider-image" rel="section1">
-				<img src="sample.jpg" width="500" height="400" />
-			</div>
-			<div class="slider-image" rel="section2">
-				<img src="sample.jpg" width="500" height="400" />
-			</div>
-			<div class="slider-image" rel="section3">
-				<img src="sample.jpg" width="500" height="400" />
-			</div>
-		</div>
-		<div id="accordian">
-			<div class="header"><a class="slider-link selected" rel="section1">Kung Fu Panda 2</a></div>
-			<div class="content">
-				<!-- CONTENT GOES HERE -->
-			</div>
-			<div class="header"><a class="slider-link" rel="section2">The Dark Knight</a></div>
-			<div class="content">
-				<!-- CONTENT GOES HERE -->
-			</div>
-			<div class="header"><a class="slider-link" rel="section3">Hot Fuzz</a></div>
-			<div class="content">
-				<!-- CONTENT GOES HERE -->
-			</div>
-		</div>
-	</div>
-			</xmp>
+			<pre>
+&lt;div id="slidorion"&gt;
+	&lt;div id="slider"&gt;
+		&lt;div class="slider-image" rel="section1"&gt;
+			&lt;img src="sample.jpg" width="500" height="400" /&gt;
+		&lt;/div&gt;
+		&lt;div class="slider-image" rel="section2"&gt;
+			&lt;img src="sample.jpg" width="500" height="400" /&gt;
+		&lt;/div&gt;
+		&lt;div class="slider-image" rel="section3"&gt;
+			&lt;img src="sample.jpg" width="500" height="400" /&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div id="accordion"&gt;
+		&lt;div class="header"&gt;&lt;a class="slider-link" rel="section1"&gt;Kung Fu Panda 2&lt;/a&gt;&lt;/div&gt;
+		&lt;div class="content"&gt;
+			&lt;!-- CONTENT GOES HERE --&gt;
+		&lt;/div&gt;
+		&lt;div class="header"&gt;&lt;a class="slider-link" rel="section2"&gt;The Dark Knight&lt;/a&gt;&lt;/div&gt;
+		&lt;div class="content"&gt;
+			&lt;!-- CONTENT GOES HERE --&gt;
+		&lt;/div&gt;
+		&lt;div class="header"&gt;&lt;a class="slider-link" rel="section3"&gt;Hot Fuzz&lt;/a&gt;&lt;/div&gt;
+		&lt;div class="content"&gt;
+			&lt;!-- CONTENT GOES HERE --&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+			</pre>
 			<h3>Basic Initialising</h3>
-			<xmp>
-	<script>
-	$(document).ready(function(){
-		$('#slidorian').slidorian();
-	});
-	</script>
-			</xmp>
+			<pre>
+&lt;script&gt;
+$(document).ready(function(){
+	$('#slidorion').slidorion();
+});
+&lt;/script&gt;
+			</pre>
 			<h3>Initialising With Options</h3>
-			<xmp>
-	<script>
-	$(document).ready(function(){
-		$('#slidorian').slidorian({
-			speed: 1000,
-			interval: 4000,
-			effect: 'slideLeft'
-		});
+			<pre>
+&lt;script&gt;
+$(document).ready(function(){
+	$('#slidorion').slidorion({
+		speed: 1000,
+		interval: 4000,
+		effect: 'slideLeft'
 	});
-	</script>
-			</xmp>
+});
+&lt;/script&gt;
+			</pre>
 		</div>
 		
 		<div id="options">
 			<h2>Options</h2>
-			<h3>
-				<ul>
-					<li>
-						<h4>autoPlay</h4>
-						<p>Automatically plays the slidorian (boolean)</p>
-					</li>
-					<li>
-						<h4>easing</h4>
-						<p>The easing of the animations (string)</p>
-					</li>
-					<li>
-						<h4>effect</h4>
-						<p>The effect of the animation (string)</p>
-					</li>
-					<li>
-						<h4>first</h4>
-						<p>The first slide to show (the <em>rel</em> of that slide) (string)</p>
-					</li>
-					<li>
-						<h4>hoverPause</h4>
-						<p>The slidorian pauses when hovered over  (boolean)</p>
-					</li>
-					<li>
-						<h4>interval</h4>
-						<p>The time between each slide (number)</p>
-					</li>
-					<li>
-						<h4>speed</h4>
-						<p>The speed of the animation (number)</p>
-					</li>
-				</ul>
-			</h3>
+			<ul>
+				<li>
+					<h3>autoPlay</h3>
+					<p>Automatically plays the slidorion (boolean)</p>
+				</li>
+				<li>
+					<h3>easing</h3>
+					<p>The easing of the animations (string)</p>
+				</li>
+				<li>
+					<h3>effect</h3>
+					<p>The effect of the animation (string)</p>
+				</li>
+				<li>
+					<h3>first</h3>
+					<p>The first slide to show (the <em>rel</em> of that slide) (string)</p>
+				</li>
+				<li>
+					<h3>hoverPause</h3>
+					<p>The slidorion pauses when hovered over  (boolean)</p>
+				</li>
+				<li>
+					<h3>interval</h3>
+					<p>The time between each slide (number)</p>
+				</li>
+				<li>
+					<h3>speed</h3>
+					<p>The speed of the animation (number)</p>
+				</li>
+			</ul>
 		</div>
 		
 		<div id="footer"></div>
 		
 	</div>
     
+	<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-26555091-1']);
+	  _gaq.push(['_trackPageview']);
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	</script>
+	
 </body>
 
 </html>

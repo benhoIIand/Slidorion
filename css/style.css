@@ -58,6 +58,8 @@ body, html {
 	line-height:20px;
 	font-size:14px;
 	color:#333;
+	font-family: 'Arial', sans-serif;
+	font-weight:normal;
 }
 h1, h2, h3 { font-family: 'Yanone Kaffeesatz', sans-serif; font-weight:bold; }
 h1 {
@@ -91,10 +93,10 @@ a.link, a:active, a:selected {
 	height:120px;
 	margin:20px auto;
 }
-#accordian p {
+#accordion p {
 	line-height:20px;
 }
-#accordian div.content > a {
+#accordion div.content > a {
     cursor:pointer;
     display:block;
     font-weight: bold;
@@ -113,11 +115,13 @@ a.link, a:active, a:selected {
 	float:left;
 	clear:both;
 }
-#container > div > xmp {
+#container > div > pre { 
+	background:#E2DBD1;
+	border:1px solid #D1BFA6;
+	color:#333;
 	font-family: “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
-	font-size:12px;
-	background:#333;
-	color:#ddd;
+	margin-bottom:20px;
+	padding: 5px 10px;
 }
 #options li {
 	margin:20px 0;
@@ -127,6 +131,45 @@ a.link, a:active, a:selected {
 	font-size:15px;
 	letter-spacing:0;
 	line-height:30px;
+}
+#download-box {
+	width:140px;
+	position:fixed;
+	right:50px;
+	top:160px;
+	padding:10px;
+	background: #ebf1f6;
+	background: -moz-linear-gradient(top, #ebf1f6 0%, #cbdfed 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebf1f6), color-stop(100%,#cbdfed));
+	background: -webkit-linear-gradient(top, #ebf1f6 0%,#cbdfed 100%);
+	background: -o-linear-gradient(top, #ebf1f6 0%,#cbdfed 100%);
+	background: -ms-linear-gradient(top, #ebf1f6 0%,#cbdfed 100%);
+	background: linear-gradient(top, #ebf1f6 0%,#cbdfed 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#cbdfed',GradientType=0 );
+	border-radius:4px;
+	border:1px solid #bbb;
+}
+#download-box p, #download-box h3 {
+	text-align:center;
+	font-weight:bold;
+	letter-spacing:0px;
+	margin:15px 0;
+	font-size:100%;
+	line-height:20px;
+}
+#download-box p {
+	font-size:80%;
+}
+.download {
+	text-indent:-9999px;
+	background:url(../img/download_buttons.png) 0 -2px no-repeat;
+	width:140px;
+	height:50px;
+	display:block;
+	overflow:hidden;
+}
+.download:hover {
+	background-position:0 -51px;
 }
 #footer {
 	height:200px;
