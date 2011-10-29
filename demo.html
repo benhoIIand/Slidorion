@@ -2,25 +2,23 @@
 
 <head>
 	
-	<title>Slidorion, An Image jQuery Plugin | jQuery Slider and jQuery Accordion</title>
+	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
+	<meta name="author" content="Ben Holland">
+	
+	<title>Slidorion, A jQuery Plugin | jQuery Image Slider and jQuery Accordion</title>
 	
 	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/jquery-ui.css" />
-	<!--
-	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
-	-->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script>
-	<script src="js/jquery.easing.js"></script>
-	
 	<link rel="stylesheet" href="css/slidorion.css" />
-    <script src="js/jquery.slidorion.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+	
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.js"></script>
+    <script src="js/jquery.slidorion.min.js"></script>
 	
     <script>
-	$(document).ready(function(){
+	$(function() {
 		$('#slidorion').slidorion();
 	});
-	function trackDownload(){pageTracker._trackPageview('/downloads/slidorion');}
 	</script>
 	
 </head>
@@ -33,13 +31,13 @@
 		
 		<div id="slider">
 			<div class="slider-image" rel="section1">
-				<img src="img/kung-fu-panda.jpg" width="500" height="400" />
+				<img src="img/kung-fu-panda.jpg" width="400" height="320" />
 			</div>
 			<div class="slider-image" rel="section2">
-				<img src="img/the-dark-knight.jpg" width="500" height="400" />
+				<img src="img/the-dark-knight.jpg" width="488" height="400" />
 			</div>
 			<div class="slider-image" rel="section3">
-				<img src="img/hot-fuzz.jpg" width="500" height="400" />
+				<img src="img/hot-fuzz.jpg" width="488" height="400" />
 			</div>
 		</div>
 		
@@ -61,13 +59,6 @@
 			</div>
 		</div>
 		
-	</div>
-	
-	<div id="download-box">
-		<a href="slidorion.zip" class="download" onClick="trackDownload()">Download</a>
-		<h3>Download the Slidorion now!</h3>
-		<h3>Contribute or tell me about issues on <a href="https://github.com/hollandben/slidorion">GitHub</a></h3>
-		<p>Slidorion was created by Ben Holland, student and part time web developer. <a href="http://www.twitter.com/hollandben">Follow him on Twitter</a> or <a href="http://www.ben-holland.co.uk/blog/">check out his blog.</a></p>
 	</div>
     
 	<script type="text/javascript">

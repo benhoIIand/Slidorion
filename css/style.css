@@ -133,7 +133,7 @@ a.link, a:active, a:selected {
 	line-height:30px;
 }
 #download-box {
-	width:140px;
+	width:170px;
 	position:fixed;
 	right:50px;
 	top:160px;
@@ -162,6 +162,7 @@ a.link, a:active, a:selected {
 }
 .download {
 	text-indent:-9999px;
+	margin-left:15px;
 	background:url(../img/download_buttons.png) 0 -2px no-repeat;
 	width:140px;
 	height:50px;
@@ -170,6 +171,12 @@ a.link, a:active, a:selected {
 }
 .download:hover {
 	background-position:0 -51px;
+}
+#download-box .social-media {
+	width:54px;
+	height:70px;
+	vertical-align: top;
+	display:inline-block;
 }
 #footer {
 	height:200px;

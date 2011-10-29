@@ -2,7 +2,7 @@
 * Slidorion, An Image Slider and Accordion Combined
 * Intructions: http://www.slidorion.com
 * Created by Ben Holland - http://www.ben-holland.co.uk
-* Version: 0.9
+* Version: 0.92
 * Copyright 2011 Ben Holland <benholland99@gmail.com>
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -63,17 +63,12 @@
 					$('#accordion .header a[rel="'+current+'"]').addClass('active').parent().next().show();
 					$('.slider-image').css({'opacity':'0'});
 					$('.slider-image[rel="'+current+'"]').css({'opacity':'1', 'z-index':zPos});
+					centerImages();
 					
 					items.click(sectionClicked);
 					
-					//$(window).mouseover(offScreen);
-					
-					if(hoverPause==true){
-						$('#slidorion').hover(function(){
-							clearInterval(autoPlaying);
-						},function(){
-							autoPlaying = setInterval(function(){playSlider(current, effect, speed, easingOption);}, interval);
-						});
+					if(hoverPause==true && autoPlay==true){
+						$('#slidorion').hover(stopAuto, startAuto);
 					}
 										
 					function animation(current, section, effect, speed, easingOption){
@@ -123,17 +118,6 @@
 								$new.css({'top':'-'+imgHeight+'px','left':'0','opacity':'1','z-index':zPos});
 								$new.animate({'top':'+='+imgHeight,'left':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
 								break;
-							case 'random':
-								var randNum = Math.floor(Math.random()*9);
-								effect = effects[randNum];
-								while(effect==previousEffect){
-									randNum = Math.floor(Math.random()*9);
-									effect = effects[randNum];
-								}
-								console.log(effect);
-								previousEffect = effect;
-								animation(current, section, effect, speed, easingOption);
-								break;
 						}
 					}
 				}else{
@@ -177,28 +161,32 @@
 					},interval);
 				}
 				
-				function offScreen(){
-					$slidorion = $('#slidorion');
-					var position = $slidorion.position();
-					var t = $(window).scrollTop();
-					var h = position.top;
-					if(t > h){
-						console.log("stopped");
-						clearInterval(autoPlaying);
-						stopAutoPlay = true;
-					}else{
-						console.log("started");
-						stopAutoPlay = false;
-					}
+				function startAuto(){
+					autoPlaying = setInterval(function(){playSlider(current, effect, speed, easingOption);}, interval);
+				}
+				
+				function stopAuto(){
+					clearInterval(autoPlaying);
+				}
+				
+				function centerImages(){
+					var sHeight = $('#slider').outerHeight();
+					var sWidth = $('#slider').outerWidth();
+					var iHeight, iWidth, padTop, padLeft = 0;
+					var bgColor = $('#slidorion').css('backgroundColor');
+					$('.slider-image img').each(function(){
+						iHeight = $(this).outerHeight();
+						iWidth = $(this).outerWidth();
+						padTop = (sHeight-iHeight)*0.5;
+						padLeft = (sWidth-iWidth)*0.5;
+						$(this).css({'padding-top':padTop,'padding-bottom':padTop,'padding-left':padLeft,'padding-right':padLeft,'background-color':bgColor,'position':'absolute'});
+					});
 				}
 
 			});
 		}
 	});
 	
-	//function setActive(){
-		//active = true;
-	//}
 })(jQuery);
 
 

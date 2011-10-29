@@ -2,7 +2,10 @@
 
 <head>
 	
-	<title>Slidorion, An Image jQuery Plugin | jQuery Slider and jQuery Accordion</title>
+	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
+	<meta name="author" content="Ben Holland">
+	
+	<title>Slidorion, A jQuery Plugin | jQuery Image Slider and jQuery Accordion</title>
 	
 	<link rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" href="css/slidorion.css" />
@@ -10,13 +13,28 @@
 	
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.easing.js"></script>
-    <script src="js/jquery.slidorion.js"></script>
+    <script src="js/jquery.slidorion.min.js"></script>
 	
     <script>
 	$(document).ready(function(){
 		$('#slidorion').slidorion();
 	});
 	function trackDownload(){_gaq.push(['_trackPageview', '/downloads/slidorion']);}
+	</script>
+	<script type="text/javascript">
+	  window.___gcfg = {lang: 'en-GB'};
+	  (function() {
+		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) {return;}
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=250647338304374";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 	</script>
 	
 </head>
@@ -61,9 +79,11 @@
 	
 	<div id="download-box">
 		<a href="slidorion.zip" class="download" onClick="trackDownload()">Download</a>
+		<p style="margin-top:0;">Version 0.92</p>
 		<h3>Download the Slidorion now!</h3>
-		<h3>Contribute or tell me about issues on <a href="https://github.com/hollandben/slidorion" target="_blank">GitHub</a></h3>
-		<p>Slidorion was created by Ben Holland, student and part time web developer. <a href="http://www.twitter.com/hollandben" target="_blank">Follow me on Twitter</a> or <a href="http://www.ben-holland.co.uk/blog/" target="_blank">check out my blog</a> for other cool stuff and tutorials.</p>
+		<p>Slidorion was created by Ben Holland, student and part time web developer at <a href="http://www.tidydesign.com" target="_blank">Tidy Design</a>. Follow me on <a href="http://www.twitter.com/hollandben" target="_blank">Twitter</a> or check out my <a href="http://www.ben-holland.co.uk/blog/" target="_blank">blog.</a></p>
+		<div class="social-media"><div class="fb-like" data-href="http://www.slidorion.com/" data-send="false" data-layout="box_count" data-show-faces="false" data-font="trebuchet ms"></div></div><div class="social-media"><g:plusone size="tall"></g:plusone></div><div class="social-media"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Slidorion - An image slider and an accordion combined. A great #jQuery plugin" data-count="vertical" data-via="hollandben">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></div>
+		<p>Contribute or tell me about issues on <a href="https://github.com/hollandben/slidorion" target="_blank">GitHub</a></p>
 	</div>
 	
 	<div id="container">
@@ -183,6 +203,15 @@ $(document).ready(function(){
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
 	</script>
+	
+		<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) {return;}
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=250647338304374";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	
 </body>
 

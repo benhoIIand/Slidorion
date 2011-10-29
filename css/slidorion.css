@@ -29,12 +29,6 @@ Stylesheet for slidorion
 	position: relative;
 }
 
-.slider-image img {
-	width: 488px;			/* Set to image width */
-	height: 400px;			/* Set to image height */
-	position: absolute;
-}
-
 #accordion {
 	width: 280px;			/* Set to accordion width */
 	height: 400px;			/* Set to image height */
@@ -44,6 +38,7 @@ Stylesheet for slidorion
 	-moz-box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
 	box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
 	position: relative;
+	z-index:999;
 	float: left;
 }
 
