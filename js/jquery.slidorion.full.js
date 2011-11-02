@@ -25,6 +25,7 @@
 				easing: '',
 				effect: 'fade',
 				first: "section1",
+				fullscreen: false,
 				interval: 7000,
 				hoverPause: false,
 				speed: 1000
@@ -43,6 +44,7 @@
 				var interval = o.interval;
 				var hoverPause = o.hoverPause;
 				var autoPlay = o.autoPlay;
+				var fullscreen = o.fullscreen;
 				var zPos = 1;
 				var sliderCount = 0;
 				var accordionCount = 0;
@@ -51,6 +53,7 @@
 				var loaded = false;
 				var previousEffect = '';
 				var obj = $(this);
+				//console.log(obj);
 				
 				if(sliderCount==accordionCount){
 					$('.slider-image', obj).each(function(){
@@ -70,9 +73,11 @@
 					if(hoverPause==true && autoPlay==true){
 						obj.hover(function(){
 							intervalPause = true;
+							//console.log("paused");
 							stopAuto();
 						}, function(){
 							intervalPause = false;
+							//console.log("started");
 							startAuto();
 						});
 					}
@@ -80,14 +85,16 @@
 					var items = $(".slider-link", obj);
 					$('.content', obj).hide();
 					$('.header a[rel="'+current+'"]', obj).addClass('active').parent().next().show();
-					centerImages(current);
 					items.click(sectionClicked);
+					$(window).resize(resizeImages);
 				}else{
 					console.log("The number of slider images does not match the number of accordion sections.");
 				}
 				
 				$(window).load(function(){
 					loaded = true;
+					resizeImages();
+					//console.log("loaded");
 				});
 				
 				function animation(current, section, effect, speed, easingOption){
@@ -95,6 +102,7 @@
 						restartAuto();
 						$current = $('.slider-image[rel="'+current+'"] img', obj);
 						$new = $('.slider-image[rel="'+section+'"] img', obj);
+						//console.log($new);
 						var imgWidth = $current.outerWidth();
 						var imgHeight = $current.outerHeight();
 						switch(effect){
@@ -145,13 +153,15 @@
 				}
 				
 				function sectionClicked(){
+					active = false;
 					$objHeader = $(this, obj);
 					section = $(this, obj).attr('rel');
+					//console.log("section - "+section);
 					if(section==current){
 						return false;
 					}else{
 						if($objHeader.parent().next().is(':hidden')) {
-							$('.slider-link.active', obj).removeClass('active').parent().next().slideUp();
+							$('.active', obj).removeClass('active').parent().next().slideUp();
 							$objHeader.addClass('active').parent().next().slideDown();
 						}
 						animation(current, section, effect, speed, easingOption);
@@ -165,8 +175,10 @@
 					if(intervalPause==false){
 						var slideNum = current.substr(current.length - 1);
 						var sCount = obj.data('slideCount')+1;
+						//console.log('sCount - '+sCount);
 						slideNum++;
 						if(slideNum==sCount){
+							//console.log("slideNum "+slideNum);
 							$('.slider-link[rel="section1"]', obj).trigger('click', sectionClicked);
 						}else{
 							section = "section"+slideNum;
@@ -190,22 +202,19 @@
 					obj.data('interval', autoPlaying);
 				}
 				
-				function centerImages(current){
-					var sHeight = $('#slider', obj).outerHeight();
-					var sWidth = $('#slider', obj).outerWidth();
-					var iHeight, iWidth, padTop, padLeft = 0;
-					var bgColor = obj.css('backgroundColor');
+				function resizeImages(){
+					var sH = $('#slider').height();
+					var sW = $('#slider').innerWidth();
+					var shiftLeft = 0;
+					var shiftUp = 0;
 					$('.slider-image img', obj).each(function(){
-						iHeight = $(this).outerHeight();
-						iWidth = $(this).outerWidth();
-						padTop = (sHeight-iHeight)*0.5;
-						padLeft = (sWidth-iWidth)*0.5;
-						$(this).css({'padding-top':padTop,'padding-bottom':padTop,'padding-left':padLeft,'padding-right':padLeft,'background-color':bgColor,'position':'absolute'});
-						$(this).css({'z-index':zPos});
-						zPos++;
+						var iH = $(this).height();
+						var iW = $(this).width();
+						var accordW = $('#accordion').width();
+						shiftLeft = ((sW-iW)*0.5);
+						shiftUp = ((sH-iH)*0.5);
+						$(this).css({'margin-left':shiftLeft,'position':'absolute'});
 					});
-					$('.slider-image[rel="'+current+'"] img', obj).css({'z-index':zPos});
-					zPos++;
 				}
 				
 			});

@@ -17,7 +17,14 @@
 	
     <script>
 	$(document).ready(function(){
+		
 		$('#slidorion').slidorion();
+		
+		$('.effects').hide();
+		$('.more-effects').click(function(e){
+			$('.effects').slideToggle();
+			e.preventDefault();
+		});
 	});
 	function trackDownload(){_gaq.push(['_trackPageview', '/downloads/slidorion']);}
 	</script>
@@ -79,7 +86,7 @@
 	
 	<div id="download-box">
 		<a href="slidorion.zip" class="download" onClick="trackDownload()">Download</a>
-		<p style="margin-top:0;">Version 0.92</p>
+		<p style="margin-top:0;">Version 0.94</p>
 		<h3>Download the Slidorion now!</h3>
 		<p>Slidorion was created by Ben Holland, student and part time web developer at <a href="http://www.tidydesign.com" target="_blank">Tidy Design</a>. Follow me on <a href="http://www.twitter.com/hollandben" target="_blank">Twitter</a> or check out my <a href="http://www.ben-holland.co.uk/blog/" target="_blank">blog.</a></p>
 		<div class="social-media"><div class="fb-like" data-href="http://www.slidorion.com/" data-send="false" data-layout="box_count" data-show-faces="false" data-font="trebuchet ms"></div></div><div class="social-media"><g:plusone size="tall"></g:plusone></div><div class="social-media"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Slidorion - An image slider and an accordion combined. A great #jQuery plugin" data-count="vertical" data-via="hollandben">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></div>
@@ -90,7 +97,8 @@
 		
 		<div id="about">
 			<h2>The Slidorion</h2>
-			<h3>A combination of an image slider and an accordion, the slidorion displays beautiful images along with a variable length description. With images linked to each tab, and accompanied by a large array of effects, the slidorion is a great alternative to the traditional jQuery slider.</h3>
+			<h3>A combination of an image slider and an accordion, the slidorion displays beautiful images along with a variable length description. With images linked to each tab, and accompanied by a large array of effects, the slidorion is a great alternative to the traditional jQuery slider.</h3><br />
+			<h3>NEW - Functionality has been added that supports multiple Slidorions on a single page. <a href="/demos/slidorion-multiple-demo.html">See demo</a></h3>
 		</div>
 		
 		<div id="usage">
@@ -168,7 +176,19 @@ $(document).ready(function(){
 				</li>
 				<li>
 					<h3>effect</h3>
-					<p>The effect of the animation (string)</p>
+					<p>The effect of the animation (string) - <a href="#" class="more-effects">view effects</a></p>
+					<div class="effects" style="margin-left:50px;">
+						<p>fade - fade's the next image in</p>
+						<p>overUp - overlaps the next image from bottom to top</p>
+						<p>overRight - overlaps the next image from left to right</p>
+						<p>overDown - overlaps the next image from top to bottom</p>
+						<p>overLeft - overlaps the next image from right to left</p>
+						<p>slideUp - slides images up</p>
+						<p>slideRight - slides images right</p>
+						<p>slideDown - slides images down</p>
+						<p>slideLeft - slides images left</p>
+						<p>none - changes image with no effect</p>
+					</div>
 				</li>
 				<li>
 					<h3>first</h3>
@@ -186,6 +206,31 @@ $(document).ready(function(){
 					<h3>speed</h3>
 					<p>The speed of the animation (number)</p>
 				</li>
+			</ul>
+		</div>
+		
+		<div id="changelog">
+			<h2>Change Log</h2>
+			<h3>Version 0.94</h3>
+			<ul class="changes">
+				<li>Solved a problem with Slidorion changing other aspects of the page outisde of itself</li>
+				<li>Improved slider autoplay functionality</li>
+				<li>Added ability to have multiple Slidorions on a page</li>
+			</ul>
+			<h3>Version 0.92</h3>
+			<ul class="changes">
+				<li>Solved starting image issue in IE8</li>
+				<li>Created function to center images in the slider section</li>
+				<li>Add the effect option "none"</li>
+			</ul>
+			<h3>Version 0.91</h3>
+			<ul class="changes">
+				<li>Changed the accordion to prevent page jumping</li>
+				<li>Solved some transition issues with IE8</li>
+			</ul>
+			<h3>Version 0.9</h3>
+			<ul class="changes">
+				<li>Launch of Slidorion</li>
 			</ul>
 		</div>
 		

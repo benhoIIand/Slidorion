@@ -1,15 +1,68 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
 /*
 
 Stylesheet for slidorion
 
  */
+body, html {
+	height: 100%;
+	overflow: hidden;
+}
 #slidorion {
-	width: 768px;			/* Set to slidorion width. Is equal to #slider + #accordion width */
-	height: 400px;			/* Set to slidorion height. Is equal to #slider and #accordion height */
+	width: 100%;			/* Set to slidorion width. Is equal to #slider + #accordion width */
+	min-height: 100%;			/* Set to slidorion height. Is equal to #slider and #accordion height */
 	position: relative;
-	left: 50%;
-	margin-left: -384px;
-	padding: 10px;
+	left: 0;
+	top:0;
 	background: #cbcbcb;
 	border: 1px solid #bbb;
 	-webkit-box-shadow: 0 0 34px #bbb;
@@ -18,11 +71,12 @@ Stylesheet for slidorion
 }
 
 #slider {
-	width: 488px;			/* Set to slider width */
-	height: 400px;			/* Set to slider height */
-	position: relative;
-	float: left;
-	overflow: hidden;		/* Hides the animations */
+	width: 80%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top:0;
+	overflow: hidden;
 }
 
 .slider-image {
@@ -30,20 +84,21 @@ Stylesheet for slidorion
 }
 
 #accordion {
-	width: 280px;			/* Set to accordion width */
-	height: 400px;			/* Set to image height */
+	position: absolute;
+	right: 0;
+	top:0;
+	width: 20%;
+	height: 100%;
 	font-family: Verdana;
 	background: #eee;
 	-webkit-box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
 	-moz-box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
 	box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
-	position: relative;
 	z-index:999;
-	float: left;
 }
 
 #accordion .header {
-	height: 36px;
+	height: 49px;
 	color: #333;
 	background: #ededed;
 	background: -moz-linear-gradient(top, #ededed 59%, #dcdcdc 100%);
@@ -58,7 +113,7 @@ Stylesheet for slidorion
 
 #accordion .header a {
 	background: none;
-	padding: 8px 14px;
+	padding: 19px 14px;
 	text-decoration: none;
 	font-weight: bold;
 	font-size: 12px;
@@ -77,7 +132,7 @@ Stylesheet for slidorion
 }
 
 #accordion .content {
-	height: 257px;			/* This height needs to be changed as it depends on the accordion height and number of tabs */
+	height: 100%;
 	font-weight: bold;
 	font-size: 12px;
 	margin: 0;
@@ -92,3 +147,12 @@ Stylesheet for slidorion
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#ffffff',GradientType=0 );
 	overflow:auto;
 }
+
+
+
+
+
+
+
+
+
