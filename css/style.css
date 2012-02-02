@@ -58,7 +58,7 @@ body, html {
 	line-height:20px;
 	font-size:14px;
 	color:#333;
-	font-family: 'Arial', sans-serif;
+	font-family: Helvetica, Tahoma, sans-serif;
 	font-weight:normal;
 }
 h1, h2, h3 { font-family: 'Yanone Kaffeesatz', sans-serif; font-weight:bold; }
@@ -77,16 +77,19 @@ h2 {
 	border-bottom:1px solid #ccc;
 }
 h3 {
-	font-family: “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
-	font-size:20px;
-	line-height:26px;
-	font-weight:400;
-	letter-spacing:-1px;
-	font-weight:normal;
+	font-size:30px;
+	line-height:38px;
+	margin-bottom:14px;
 }
-a.link, a:active, a:selected {
+h4 {
+	font-size:16px;
+	line-height:24px;
+	font-weight:bold;
+}
+a:link, a:active, a:visited {
 	border:none;
 	outline:none;
+	color:#072B29;
 }
 #header {
 	width:1000px;
@@ -94,32 +97,74 @@ a.link, a:active, a:selected {
 	margin:20px auto;
 }
 #accordion p {
-	line-height:18px;
+	margin-bottom:14px;
 }
-#accordion div.content > a {
-    cursor:pointer;
-    display:block;
-    font-weight: bold;
-    font-size: 12px;
-	margin-top:20px;
-    color: #333;
-	border:none;
+#accordion strong {
+	font-weight: bold !important;
+}
+#slide1 {
+	background:#f2f2f2;
+}
+#slide1 .content {
+	padding:20px;
+	font-family: 'Yanone Kaffeesatz', sans-serif; font-weight:bold;
+}
+#slide1 h4 {
+	font-size:24px !important;
+	line-height:28px !important;
+}
+#slide1 .content ul {
+	list-style: square;
+	margin-top:15px;
+	margin-left:40px;
+}
+#slide1 .content li {
+	margin-bottom:10px;
+}
+#slide3 {
+	background:url(../img/slide-bg.jpg) center center no-repeat;
+	color:#fff !important;
+}
+#slide3 .content {
+	padding:15px 20px;
+}
+#slide3 a {
+	color:#ddd;
+}
+#slide3 .content h1 {
+	text-align:left;
+	font-size:60px;
+}
+#slidorion2 {
+	width: 768px;			/* Set to slidorion width. Is equal to #slider + #accordion width */
+	height: 400px;			/* Set to slidorion height. Is equal to #slider and #accordion height */
+	position: relative;
+	left: 50%;
+	margin-left: -384px;
+	padding: 10px;
+	background: #cbcbcb;
+	border: 1px solid #bbb;
+	-webkit-box-shadow: 0 0 34px #bbb;
+	-moz-box-shadow: 0 0 34px #bbb;
+	box-shadow: 0 0 34px #bbb;
+}
+strong {
+	font-weight:bold;
 }
 #container {
 	width:800px;
 	margin:30px auto;
+	position:relative;
 }
-#container > div {
-	width:100%;
-	margin-bottom:40px;
-	float:left;
-	clear:both;
+#container >div {
+	width:78%;
+	margin-bottom:30px;
 }
 #container > div > pre { 
 	background:#E2DBD1;
 	border:1px solid #D1BFA6;
 	color:#333;
-	font-family: “Myriad Pro”, Arial, Helvetica, Tahoma, sans-serif;
+	font-family: Helvetica, Tahoma, sans-serif;
 	margin-bottom:20px;
 	padding: 5px 10px;
 	border-left: 10px solid #D1BFA6;
@@ -134,10 +179,9 @@ a.link, a:active, a:selected {
 	line-height:30px;
 }
 #download-box {
-	width:170px;
-	position:fixed;
-	right:50px;
-	top:160px;
+	width:170px !important;
+	position:absolute;
+	margin-left:620px;
 	padding:10px;
 	background: #ebf1f6;
 	background: -moz-linear-gradient(top, #ebf1f6 0%, #cbdfed 100%);
@@ -149,6 +193,7 @@ a.link, a:active, a:selected {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebf1f6', endColorstr='#cbdfed',GradientType=0 );
 	border-radius:4px;
 	border:1px solid #bbb;
+	float:right;
 }
 #download-box p, #download-box h3 {
 	text-align:center;
@@ -157,6 +202,10 @@ a.link, a:active, a:selected {
 	margin:15px 0;
 	font-size:100%;
 	line-height:20px;
+}
+#download-box h3 {
+	font-size:200%;
+	line-height:30px;
 }
 #download-box p {
 	font-size:80%;

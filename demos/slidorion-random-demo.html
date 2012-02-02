@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 
 <head>
-	
+
 	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
 	<meta name="author" content="Ben Holland">
-	
-	<title>Slidorion, A jQuery Plugin | jQuery Image Slider and jQuery Accordion | Multiple Slidorion</title>
-	
+
+	<title>Slidorion, A jQuery Plugin | jQuery Image Slider and jQuery Accordion | Random Demo</title>
+
 	<link rel="stylesheet" href="../css/style.css" />
 	<link rel="stylesheet" href="../css/slidorion.css" />
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
-	
+
 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/jquery.easing.js"></script>
     <script src="../js/jquery.slidorion.min.js"></script>
-	
+
     <script>
-	$(document).ready(function() {
+	$(function() {
 		$('#slidorion').slidorion({
-			hoverPause: true,
-			interval: 2500,
-			speed: 500,
-			effect: 'fade'
-		});
-		$('#slidorion2').slidorion({
-			interval: 4000,
-			speed: 1000,
-			effect: 'slideRandom'
+			interval: 5000,
+			effect: 'random'
 		});
 	});
 	</script>
-	
+
 </head>
 
 <body>
-	
-	<div id="header"><h1>SLIDORION - Multiple Demo</h1></div>
-	
+
+	<div id="header"><h1>SLIDORION - RANDOM</h1></div>
+
 	<div id="slidorion">
 
 		<div id="slider">
@@ -71,44 +64,10 @@
 
 	</div>
 	
-	<br /><br /><br /><br /><br />
-	
-	<div id="slidorion2">
-
-		<div id="slider">
-			<div id="slide1" class="slide">
-				<img src="../img/spiderman.jpg" width="488" height="400" />
-			</div>
-			<div id="slide2" class="slide">
-				<img src="../img/kick-ass.jpg" width="488" height="400" />
-			</div>
-			<div id="slide3" class="slide">
-				<img src="../img/thor.jpg" width="488" height="400" />
-			</div>
-		</div>
-
-		<div id="accordion">
-			<div class="link-header">Spiderman</div>
-			<div class="link-content">
-				<p>Based on Marvel Comics' superhero character, this is a story of Peter Parker who is a nerdy high-schooler; bullied by jocks and can't confess his crush for his stunning neighborhood girl Mary Jane Watson.</p>
-				<p>To say his life is "miserable" is an understatement. But one day while on an excursion to a laboratory a runaway radioactive spider bites him...</p>
-			</div>
-			<div class="link-header">Kick Ass</div>
-			<div class="link-content">
-				<p>Dave Lizewski is an unnoticed high school student and comic book fan with a few friends and who lives alone with his father. His life is not very difficult and his personal trials not that overwhelming.</p>
-				<p>However, one day he makes the simple decision to become a super-hero even though he has no powers or training.</p>
-			</div>
-			<div class="link-header">Thor</div>
-			<div class="link-content">
-				<p>The warrior Thor is cast out of the fantastic realm of Asgard by his father Odin for his arrogance and sent to Earth to live among humans.</p>
-				<p>Falling in love with scientist Jane Foster teaches Thor much-needed lessons, and his new-found strength comes into play as a villain from his homeland sends dark forces toward Earth.</p>
-			</div>
-		</div>
-
+	<div id="container" style="text-align:center">
+		<h3>Randomly cycles through all effects</h3>
 	</div>
-    
-	<br /><br /><br /><br /><br />
-	
+
 </body>
 
 </html>

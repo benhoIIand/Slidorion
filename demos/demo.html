@@ -17,7 +17,12 @@
 	
     <script>
 	$(function() {
-		$('#slidorion').slidorion();
+		$('#slidorion').slidorion({
+			first: 2,
+			autoPlay: false,
+			easing: 'easeInOutCubic',
+			effect: 'random'
+		});
 	});
 	</script>
 	
@@ -30,30 +35,31 @@
 	<div id="slidorion">
 		
 		<div id="slider">
-			<div class="slider-image" rel="section1">
-				<img src="../img/kung-fu-panda.jpg" width="488" height="400" />
+			<div id="slide1" class="slide">
+				<img src="../img/spiderman.jpg" width="488" height="400" />
 			</div>
-			<div class="slider-image" rel="section2">
-				<img src="../img/the-dark-knight.jpg" width="488" height="400" />
+			<div id="slide2" class="slide">
+				<img src="../img/kick-ass.jpg" width="488" height="400" />
 			</div>
-			<div class="slider-image" rel="section3">
+			<div id="slide3" class="slide">
 				<img src="../img/hot-fuzz.jpg" width="488" height="400" />
 			</div>
 		</div>
 		
 		<div id="accordion">
-			<div class="header"><a class="slider-link" rel="section1">Kung Fu Panda 2</a></div>
-			<div class="content">
-				<p>In the Valley of Peace, Po Ping is revelling in his fulfilled dreams as he serves as the fabled Dragon Warrior protecting his home with his heroes now his closest friends. However, Po and company learn that the murderous Lord Shen of Gongman City is threatening the land with a fearsome new weapon that could mean the end of kung fu forever.</p>
-				<a href="http://www.imdb.com/title/tt1302011/">Read more</a>
+			<div class="link-header">New Features</div>
+			<div class="link-content">
+				<p><strong>Slidorion</strong> has under gone some pretty important changes recently.</p>
+				<p>It now <strong>supports HTML</strong> and not just images, something that is going to improve the usability of Slidorion a lot.</p>
+				<p>Some new effects have been added, most importantly <strong>pan and zoom</strong>! Along with this are performance upgrades and <strong>vital bug fixes</strong>.</p>
 			</div>
-			<div class="header"><a class="slider-link" rel="section2">The Dark Knight</a></div>
-			<div class="content">
+			<div class="link-header">Embedded Images</div>
+			<div class="link-content">
 				<p>Batman raises the stakes in his war on crime. With the help of Lieutenant Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the city streets. But they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as The Joker.</p>
 				<a href="http://www.imdb.com/title/tt0468569/">Read more</a>
 			</div>
-			<div class="header"><a class="slider-link" rel="section3">Hot Fuzz</a></div>
-			<div class="content">
+			<div class="link-header">Current Effects</div>
+			<div class="link-content">
 				<p>Top London cop, PC Nicholas Angel is good. Too good. And to stop the rest of his team looking bad, he is reassigned to the quiet town of Sandford. Everything seems quiet for Angel, until two actors are found decapitated. It is called an accident, but Angel isn't going to accept that, especially when more and more people turn up dead.</p>
 				<a href="http://www.imdb.com/title/tt0425112/">Read more</a>
 			</div>

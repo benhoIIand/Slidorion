@@ -12,18 +12,24 @@
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
 	
 	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery.easing.js"></script>
     <script src="js/jquery.slidorion.min.js"></script>
 	
     <script>
-	$(document).ready(function(){
+	$(function(){
+		$('#slidorion').slidorion({
+			effect: 'slideRandom',
+			hoverPause: true,
+			interval: 20000,
+			speed: 800
+		});
 		
-		$('#slidorion').slidorion();
-		
-		$('.effects').hide();
-		$('.more-effects').click(function(e){
-			$('.effects').slideToggle();
-			e.preventDefault();
+		$(window).scroll(function(){
+			$el = $('#download-box');
+			if ($(this).scrollTop() > 540 && $el.css('position') != 'fixed'){
+				$('#download-box').css({'position': 'fixed', 'top': '10px'});
+			}else if($(this).scrollTop() < 540 && $el.css('position') == 'fixed'){
+				$('#download-box').css({'position': 'absolute', 'top': '10px'});
+			}
 		});
 	});
 	function trackDownload(){_gaq.push(['_trackPageview', '/downloads/slidorion']);}
@@ -53,105 +59,157 @@
 	<div id="slidorion">
 		
 		<div id="slider">
-			<div class="slider-image" rel="section1">
-				<img src="img/kung-fu-panda.jpg" width="500" height="400" />
+			<div id="slide1" class="slide">
+				<div class="content">
+					<h2>New Features</h2>
+					<h3>There's been some pretty important changes to Slidorion. Here are some of these changes...</h3>
+					<ul>
+						<li><h4>Allows embedded HTML</h4></li>
+						<li><h4>New random effect (slide, over and all)</h4></li>
+						<li><h4>Easier usability</h4></li>
+						<li><h4>Improved performance</h4></li>
+						<li><h4>Bug fixes; click disabled during transition</h4></li>
+					</ul>
+				</div>
 			</div>
-			<div class="slider-image" rel="section2">
-				<img src="img/the-dark-knight.jpg" width="500" height="400" />
+			<div id="slide2" class="slide">
+				<img src="img/spiderman.jpg" width="488" height="400" />
 			</div>
-			<div class="slider-image" rel="section3">
-				<img src="img/hot-fuzz.jpg" width="500" height="400" />
+			<div id="slide3" class="slide">
+				<div class="content">
+					<h1>Background Image with HTML Text</h1><br />
+					<h3>You can give each individual slide a unique background image, allow for full customisation.</h3><br /><br />
+					<h3>For a cool background effect, check out this <a href="demos/slidorion-background-demo.html">demo</a></h3>
+				</div>
+			</div>
+			<div id="slide4" class="slide">
+				<img src="img/spiderman.jpg" width="488" height="400" />
 			</div>
 		</div>
 		
 		<div id="accordion">
-			<div class="header"><a class="slider-link" rel="section1">Kung Fu Panda 2</a></div>
-			<div class="content">
-				<p>In the Valley of Peace, Po Ping is revelling in his fulfilled dreams as he serves as the fabled Dragon Warrior protecting his home with his heroes now his closest friends. However, Po and company learn that the murderous Lord Shen of Gongman City is threatening the land with a fearsome new weapon that could mean the end of kung fu forever.</p>
-				<a href="http://www.imdb.com/title/tt1302011/">Read more</a>
+			<div class="link-header">New Features</div>
+			<div class="link-content">
+				<p><strong>Slidorion</strong> is a combination of an image slider and an accordion; displaying beautiful content through various effects.</p>
+				<p>Version 1.0 sees some vital changes and bugs fixes. Most important of these is allow HTML content to be displayed within each slide.</p>
+				<p>Slidorion was created by Ben Holland. Follow me on <a href="http://www.twitter.com/hollandben" target="_blank">Twitter</a></p>
 			</div>
-			<div class="header"><a class="slider-link" rel="section2">The Dark Knight</a></div>
-			<div class="content">
-				<p>Batman raises the stakes in his war on crime. With the help of Lieutenant Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the city streets. But they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as The Joker.</p>
-				<a href="http://www.imdb.com/title/tt0468569/">Read more</a>
+			<div class="link-header">A Simple Image</div>
+			<div class="link-content">
+				<p>Slidorion caters for all kinds of content; from HTML to simple images such as this.</p>
+				<p>Make sure images are the correct size, or give that slide a background to prevent objects behind seeping through.</p>
+				<p>Check out the next slide to see an example on how to use the transparent background</p>
 			</div>
-			<div class="header"><a class="slider-link" rel="section3">Hot Fuzz</a></div>
-			<div class="content">
-				<p>Top London cop, PC Nicholas Angel is good. Too good. And to stop the rest of his team looking bad, he is reassigned to the quiet town of Sandford. Everything seems quiet for Angel, until two actors are found decapitated. It is called an accident, but Angel isn't going to accept that, especially when more and more people turn up dead.</p>
-				<a href="http://www.imdb.com/title/tt0425112/">Read more</a>
+			<div class="link-header">Background Image w/ HTML</div>
+			<div class="link-content">
+				<p>Each slide can be styled individually, giving you the attach to add custom backgrounds and colours to them to make Slidorion exactly what you need it to be.</p>
+				<p>For a cool background effect, check out this <a href="demos/slidorion-background-demo.html">demo</a></p>
+			</div>
+			<div class="link-header">Another Simple Image</div>
+			<div class="link-content">
+				<p>Each slide can be styled individually, giving you the attach to add custom backgrounds and colours to them to make Slidorion exactly what you need it to be.</p>
+				<p>For a cool background effect, check out this <a href="demos/slidorion-background-demo.html">demo</a></p>
 			</div>
 		</div>
 		
-	</div>
-	
-	<div id="download-box">
-		<a href="slidorion.zip" class="download" onClick="trackDownload()">Download</a>
-		<p style="margin-top:0;">Version 0.94</p>
-		<h3>Download the Slidorion now!</h3>
-		<p>Slidorion was created by Ben Holland, student and part time web developer at <a href="http://www.tidydesign.com" target="_blank">Tidy Design</a>. Follow me on <a href="http://www.twitter.com/hollandben" target="_blank">Twitter</a> or check out my <a href="http://www.ben-holland.co.uk/blog/" target="_blank">blog.</a></p>
-		<div class="social-media"><div class="fb-like" data-href="http://www.slidorion.com/" data-send="false" data-layout="box_count" data-show-faces="false" data-font="trebuchet ms"></div></div><div class="social-media"><g:plusone size="tall"></g:plusone></div><div class="social-media"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Slidorion - An image slider and an accordion combined. A great #jQuery plugin" data-count="vertical" data-via="hollandben">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></div>
-		<p>Contribute or tell me about issues on <a href="https://github.com/hollandben/slidorion" target="_blank">GitHub</a></p>
 	</div>
 	
 	<div id="container">
 		
+		<div id="download-box">
+			<a href="slidorion.zip" class="download" onClick="trackDownload()">Download</a>
+			<p style="margin-top:0;">Version 1.0</p>
+			<h3>Download the Slidorion now!</h3>
+			<p>Slidorion was created by Ben Holland, student and part time web developer at <a href="http://www.tidydesign.com" target="_blank">Tidy Design</a>. Follow me on <a href="http://www.twitter.com/hollandben" target="_blank">Twitter</a> or check out my <a href="http://www.ben-holland.co.uk/blog/" target="_blank">blog.</a></p>
+			<div class="social-media"><div class="fb-like" data-href="http://www.slidorion.com/" data-send="false" data-layout="box_count" data-show-faces="false" data-font="trebuchet ms"></div></div><div class="social-media"><g:plusone size="tall"></g:plusone></div><div class="social-media"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Slidorion - An image slider and an accordion combined. A great #jQuery plugin" data-count="vertical" data-via="hollandben">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></div>
+			<p>Contribute or tell me about issues on <a href="https://github.com/hollandben/slidorion" target="_blank">GitHub</a></p>
+		</div>
+		
 		<div id="about">
 			<h2>The Slidorion</h2>
-			<h3>A combination of an image slider and an accordion, the slidorion displays beautiful images along with a variable length description. With images linked to each tab, and accompanied by a large array of effects, the slidorion is a great alternative to the traditional jQuery slider.</h3><br />
-			<h3>NEW - Functionality has been added that supports multiple Slidorions on a single page. <a href="/demos/slidorion-multiple-demo.html">See demo</a></h3>
+			<h4>A combination of an image slider and an accordion, the Slidorion displays beautiful images along with a variable length description. With slides linked to each tab, and accompanied by a large array of effects, the Slidorion is a great alternative to the traditional jQuery slider.</h4><br />
+			<p style="font-size:90%;"><strong>Slidorion</strong> is <strong>FREE</strong> to use provided that you leave my credits intact, and is licensed under the Apache License 2.0 <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">see details here</a></p><br />
+			<p>Basic demo - <a href="demos/slidorion-basic-demo.html">click to see</a></p>
+			<p>Random Effect demo - <a href="demos/slidorion-random-demo.html">click to see</a></p>
+			<p>Random Slide demo - <a href="demos/slidorion-sliderandom-demo.html">click to see</a></p>
+			<p>Random Overlap demo - <a href="demos/slidorion-overrandom-demo.html">click to see</a></p>
+			<p>Multiple Slidorion demo - <a href="demos/slidorion-multiple-demo.html">click to see</a></p>
+		</div>
+		
+		<div id="effects">
+			<h2>Effects</h2>
+			<p><strong>fade</strong> - <a href="demos/slidorion-basic-demo.html">click for demo</a></p>
+			<p><strong>slideRandom</strong> - <a href="demos/slidorion-sliderandom-demo.html">click for demo</a></p>
+			<p><strong>overRandom</strong> - <a href="demos/slidorion-overrandom-demo.html">click for demo</a></p><br />
+			<p><strong>slideUp</strong></p>
+			<p><strong>slideRight</strong></p>
+			<p><strong>slideDown</strong></p>
+			<p><strong>slideLeft</strong></p><br />
+			<p><strong>overUp</strong></p>
+			<p><strong>overRight</strong></p>
+			<p><strong>overDown</strong></p>
+			<p><strong>overLeft</strong></p>
+			<p><strong>none</strong></p>
+		</div>
+		
+		<div id="options">
+			<h2>Options</h2>
+			<strong>autoPlay</strong> - Automatically plays the slidorion (boolean)</p>
+			<strong>easing</strong> - The easing of the animations (string)</p>
+			<strong>effect</strong> - The effect of the animation (string)</p>
+			<strong>first</strong> - The first slide to show (the <em>rel</em> of that slide) (string) see above</p>
+			<strong>hoverPause</strong> - The slidorion pauses when hovered over  (boolean)</p>
+			<strong>interval</strong> - The time between each slide (number)</p>
+			<strong>speed</strong> - The speed of the animation (number)</p>
 		</div>
 		
 		<div id="usage">
 			<h2>Usage</h2>
-			<h3>Import jQuery, jQuery UI and slidorion</h3>
+			<h3>Import jQuery, Easing and Slidorion</h3>
 			<pre>
 &lt;link rel="stylesheet" href="css/slidorion.css" /&gt;
 
-&lt;script src="js/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="js/jquery.easing.js"&gt;&lt;/script&gt;
-&lt;script src="js/jquery.slidorion.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.slidorion.min.js"&gt;&lt;/script&gt;
 			</pre>
+			<a href="js/jquery.slidorion.min.js">Download Slidorion</a><br />
+			<a href="js/jquery.easing.js">Download Easing</a> - v1.3 Required<br /><br />
 			<h3>HTML Structure</h3>
+			<p>The required selector tags are shown. This is the structure that must be maintained throughout. The accordion and slider can change positions though, i.e. accordion on the left</p><br />
 			<pre>
 &lt;div id="slidorion"&gt;
 	&lt;div id="slider"&gt;
-		&lt;div class="slider-image" rel="section1"&gt;
-			&lt;img src="sample.jpg" width="500" height="400" /&gt;
-		&lt;/div&gt;
-		&lt;div class="slider-image" rel="section2"&gt;
-			&lt;img src="sample.jpg" width="500" height="400" /&gt;
-		&lt;/div&gt;
-		&lt;div class="slider-image" rel="section3"&gt;
-			&lt;img src="sample.jpg" width="500" height="400" /&gt;
-		&lt;/div&gt;
+		&lt;div class="slide"&gt;&lt;/div&gt;
+		&lt;div class="slide"&gt;&lt;/div&gt;
+		&lt;div class="slide"&gt;&lt;/div&gt;
 	&lt;/div&gt;
+	
 	&lt;div id="accordion"&gt;
-		&lt;div class="header"&gt;&lt;a class="slider-link" rel="section1"&gt;Kung Fu Panda 2&lt;/a&gt;&lt;/div&gt;
-		&lt;div class="content"&gt;
-			&lt;!-- CONTENT GOES HERE --&gt;
+		&lt;div class="link-header"&gt;New Features&lt;/div&gt;
+		&lt;div class="link-content"&gt;
+			&lt;!-- content --&gt;
 		&lt;/div&gt;
-		&lt;div class="header"&gt;&lt;a class="slider-link" rel="section2"&gt;The Dark Knight&lt;/a&gt;&lt;/div&gt;
-		&lt;div class="content"&gt;
-			&lt;!-- CONTENT GOES HERE --&gt;
+		&lt;div class="link-header"&gt;A Simple Image&lt;/div&gt;
+		&lt;div class="link-content"&gt;
+			&lt;!-- content --&gt;
 		&lt;/div&gt;
-		&lt;div class="header"&gt;&lt;a class="slider-link" rel="section3"&gt;Hot Fuzz&lt;/a&gt;&lt;/div&gt;
-		&lt;div class="content"&gt;
-			&lt;!-- CONTENT GOES HERE --&gt;
+		&lt;div class="link-header"&gt;Background Image w/ HTML&lt;/div&gt;
+		&lt;div class="link-content"&gt;
+			&lt;!-- content --&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
 &lt;/div&gt;
 			</pre>
 			<h3>Basic Initialising</h3>
 			<pre>
-&lt;script&gt;
 $(document).ready(function(){
 	$('#slidorion').slidorion();
 });
-&lt;/script&gt;
 			</pre>
 			<h3>Initialising With Options</h3>
+			<p></p>
 			<pre>
-&lt;script&gt;
 $(document).ready(function(){
 	$('#slidorion').slidorion({
 		speed: 1000,
@@ -159,61 +217,22 @@ $(document).ready(function(){
 		effect: 'slideLeft'
 	});
 });
-&lt;/script&gt;
 			</pre>
-		</div>
-		
-		<div id="options">
-			<h2>Options</h2>
-			<ul>
-				<li>
-					<h3>autoPlay</h3>
-					<p>Automatically plays the slidorion (boolean)</p>
-				</li>
-				<li>
-					<h3>easing</h3>
-					<p>The easing of the animations (string)</p>
-				</li>
-				<li>
-					<h3>effect</h3>
-					<p>The effect of the animation (string) - <a href="#" class="more-effects">view effects</a></p>
-					<div class="effects" style="margin-left:50px;">
-						<p>fade - fade's the next image in</p>
-						<p>overUp - overlaps the next image from bottom to top</p>
-						<p>overRight - overlaps the next image from left to right</p>
-						<p>overDown - overlaps the next image from top to bottom</p>
-						<p>overLeft - overlaps the next image from right to left</p>
-						<p>slideUp - slides images up</p>
-						<p>slideRight - slides images right</p>
-						<p>slideDown - slides images down</p>
-						<p>slideLeft - slides images left</p>
-						<p>none - changes image with no effect</p>
-					</div>
-				</li>
-				<li>
-					<h3>first</h3>
-					<p>The first slide to show (the <em>rel</em> of that slide) (string)</p>
-				</li>
-				<li>
-					<h3>hoverPause</h3>
-					<p>The slidorion pauses when hovered over  (boolean)</p>
-				</li>
-				<li>
-					<h3>interval</h3>
-					<p>The time between each slide (number)</p>
-				</li>
-				<li>
-					<h3>speed</h3>
-					<p>The speed of the animation (number)</p>
-				</li>
-			</ul>
 		</div>
 		
 		<div id="changelog">
 			<h2>Change Log</h2>
-			<h3>Version 0.94</h3>
+			<h3>Version 1.0</h3>
 			<ul class="changes">
-				<li>Solved a problem with Slidorion changing other aspects of the page outisde of itself</li>
+				<li>Added random effects for slide, over and all</li>
+				<li>Improved performance</li>
+				<li>Allows for embedded HTML</li>
+				<li>Improved usability and syntax</li>
+				<li>Fixed bug with accordion jumping out of container</li>
+				<li>Fixed bug with simultaneous effects</li>
+			</ul>
+			<h3>Version 0.93</h3>
+			<ul class="changes">
 				<li>Improved slider autoplay functionality</li>
 				<li>Added ability to have multiple Slidorions on a page</li>
 			</ul>
@@ -237,7 +256,7 @@ $(document).ready(function(){
 		<div id="footer"></div>
 		
 	</div>
-    
+	
 	<script type="text/javascript">
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-26555091-1']);
