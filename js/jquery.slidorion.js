@@ -193,7 +193,7 @@
 				}
 				
 				function sectionClicked(){
-					if(active == false) {
+					if(active == false && loaded == true) {
 						$objHeader = $(this, obj);
 						var section = ($objHeader.index()/2)+1;
 						if(section==current){
