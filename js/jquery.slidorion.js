@@ -48,7 +48,6 @@
 				var accordionCount = 0;
 				var intervalPause = false;
 				var active = false;
-				var loaded = false;
 				var prevEffect = "";
 				var obj = $(this);
 				var effects = new Array('fade','slideLeft','slideUp','slideRight','slideDown','overLeft','overRight','overUp','overDown');
@@ -104,12 +103,8 @@
 					console.log("The number of slider images does not match the number of accordion sections.");
 				}
 				
-				$(window).load(function(){
-					loaded = true;
-				});
-				
 				function animation(current, section, effect, speed, easingOption){
-					if(!active && loaded){
+					if(!active){
 						active = true;
 						if(autoPlay==true && intervalPause==false) {
 							restartAuto();
@@ -193,7 +188,7 @@
 				}
 				
 				function sectionClicked(){
-					if(active == false && loaded == true) {
+					if(active == false) {
 						$objHeader = $(this, obj);
 						var section = ($objHeader.index()/2)+1;
 						if(section==current){
