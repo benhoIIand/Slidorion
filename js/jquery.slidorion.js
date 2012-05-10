@@ -22,6 +22,7 @@
 		slidorion: function(options) {
 			var defaults = {
 				autoPlay: true,
+				stopOnClick: false,
 				easing: '',
 				effect: 'fade',
 				first: 1,
@@ -43,6 +44,7 @@
 				var interval = o.interval;
 				var hoverPause = o.hoverPause;
 				var autoPlay = o.autoPlay;
+				var stopOnClick = o.stopOnClick;
 				var zPos = 1;
 				var sliderCount = 0;
 				var accordionCount = 0;
@@ -187,9 +189,16 @@
 					}
 				}
 				
-				function sectionClicked(){
+				function sectionClicked() {
+					if (stopOnClick) {
+						intervalPause = true;
+						stopAuto();
+					}
+					return selectSection(this);
+				}
+				function selectSection(header) {
 					if(active == false) {
-						$objHeader = $(this, obj);
+						$objHeader = $(header, obj);
 						var section = ($objHeader.index()/2)+1;
 						if(section==current){
 							return false;
@@ -214,7 +223,7 @@
 				
 				function playSlider(current, effect, speed, easingOption){
 					var nextSection = checkEnd(current);
-					$('#accordion .link-header:eq('+nextSection+')', obj).trigger('click', sectionClicked);
+					selectSection($('#accordion .link-header:eq('+nextSection+')', obj));
 				}
 				
 				function startAuto(){
