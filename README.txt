@@ -49,12 +49,16 @@ The time between each slide (number)
 speed
 The speed of the animation (number)
 
+stopOnClick
+Stop the automatic playing when a section heading is clicked (boolean)
 
 
 ---------------
   Change Log
 ---------------
 
+Version 1.1
+	Added stopOnClick option
 Version 1.0
 	Added random effects for slide, over and all
 	Improved performance
