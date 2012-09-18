@@ -1,14 +1,12 @@
-----------------------------------------------------------------
-  The Slidorion
-----------------------------------------------------------------
+## The Slidorion
 
 A combination of an image slider and an accordion, the slidorion displays beautiful images along with a variable length description. With images linked to each tab, and accompanied by a large array of effects, the slidorion is a great alternative to the traditional jQuery slider.
 
+<a href="http://wordpress.org/extend/plugins/slidorion/">Slidorion is now available for WordPress</a>
 
 
----------------
-  Effects
----------------
+
+### Effects
 
 fade
 slideRandom
@@ -24,9 +22,7 @@ overLeft
 none
 
 
----------------
-  Options
----------------
+### Options
 
 autoPlay
 Automatically plays the slidorion (boolean)
@@ -51,9 +47,7 @@ The speed of the animation (number)
 
 
 
----------------
-  Change Log
----------------
+### Change Log
 
 Version 1.0
 	Added random effects for slide, over and all
@@ -74,4 +68,3 @@ Version 0.91
 	Solved some transition issues with IE8
 Version 0.9
 	Launch of Slidorion
-		
