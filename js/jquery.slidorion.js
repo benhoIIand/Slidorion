@@ -57,6 +57,16 @@
 				var wipeFadeEffects = new Array('wipeDownFade','wipeUpFade');
 				var wipeAllEffects = new Array('wipeDown','wipeUp','wipeDownFade','wipeUpFade');
 				
+				$(".right").click(function() {
+                                        var nextSection = checkEnd(current);
+                                        $('#accordion .link-header:eq('+nextSection+')', obj).trigger('click', sectionClicked);
+			        });
+				$(".left").click(function() {
+					var back = current - 2;
+                                        var nextSection = checkStart(back);
+                                        $('#accordion .link-header:eq('+nextSection+')', obj).trigger('click', sectionClicked);
+			        });
+				
 				sliderCount = $('#slider > div', obj).size();
 				obj.data('slideCount', sliderCount);
 				
@@ -237,6 +247,14 @@
 				function checkEnd(tempSection) {
 					if(tempSection == sliderCount) {
 						tempSection = 0;
+						return tempSection;
+					} else {
+						return tempSection;
+					}
+				}
+				function checkStart(tempSection) {
+					if(tempSection == -1) {
+						tempSection = sliderCount -1 ;
 						return tempSection;
 					} else {
 						return tempSection;
