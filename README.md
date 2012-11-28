@@ -45,6 +45,12 @@ The time between each slide (number)
 speed
 The speed of the animation (number)
 
+controlNav
+Show navigation buttons (boolean)
+
+controlNavClass
+The class of the navigation control buttons (string)
+
 
 
 ### Change Log
