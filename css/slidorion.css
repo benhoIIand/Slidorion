@@ -89,3 +89,22 @@
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#ffffff',GradientType=0 );
 	overflow:auto;
 }
+
+#slidorion .nav {
+    position: absolute;
+    top: 200px;
+    width: 16px;
+    height: 27px;
+    z-index: 9999;
+    background: url('../img/arrows.png') 0 0 no-repeat;
+    cursor: pointer;
+}
+
+#slidorion .nav-left {
+	left: 30px;
+}
+
+#slidorion .nav-right {
+	right: 310px;
+	background-position: -16px 0;
+}

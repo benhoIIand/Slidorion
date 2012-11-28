@@ -29,11 +29,11 @@
 				hoverPause: false,
 				speed: 1000
 			};
-			
+
 			var options = $.extend(defaults, options);
-			
+
 			return this.each(function() {
-				
+
 				var o = options;
 				var current = o.first;
 				var section = o.first+1;
@@ -43,6 +43,8 @@
 				var interval = o.interval;
 				var hoverPause = o.hoverPause;
 				var autoPlay = o.autoPlay;
+				var controlNav = o.controlNav;
+				var controlNavClass = o.controlNavClass;
 				var zPos = 1;
 				var sliderCount = 0;
 				var accordionCount = 0;
@@ -56,13 +58,13 @@
 				var wipeEffects = new Array('wipeDown','wipeUp');
 				var wipeFadeEffects = new Array('wipeDownFade','wipeUpFade');
 				var wipeAllEffects = new Array('wipeDown','wipeUp','wipeDownFade','wipeUpFade');
-				
+
 				sliderCount = $('#slider > div', obj).size();
 				obj.data('slideCount', sliderCount);
-				
+
 				accordionCount = $('#accordion > .link-header', obj).size();
 				obj.data('accordCount', accordionCount);
-				
+
 				if(sliderCount==accordionCount){
 					if(autoPlay==true){
 						var autoPlaying = setInterval(function(){
@@ -79,30 +81,36 @@
 							restartAuto();
 						});
 					}
-					
+
 					resetLayers();
-					
+
 					$('#slider > div:eq('+(current-1)+')', obj).css('z-index',zPos);
 					zPos++;
-					
+
 					if(effect != "fade" || effect != "none"){
 						$('#slider > div', obj).css({'top':'0','left':'-600px'});
 						$('#slider > div:eq('+(current-1)+')', obj).css({'top':'0','left':'0'});
 					}
-					
+
 					$('.link-content', obj).hide();
 					$('#accordion .link-header:eq('+(current-1)+')', obj)
 						.addClass('active')
 						.next()
 						.show();
-					
-					$(".link-header", obj).click(sectionClicked);					
-					
-				}else{
+
+					if(controlNav) {
+						obj.append('<div class="'+controlNavClass+' '+controlNavClass+'-left"></div><div class="'+controlNavClass+' '+controlNavClass+'-right"></div>');
+						$('.'+controlNavClass+'-left').click(leftNavigation);
+						$('.'+controlNavClass+'-right').click(rightNavigation);
+					}
+
+					$(".link-header", obj).click(sectionClicked);
+
+				} else {
 					alert("The number of slider images does not match the number of accordion sections.");
 					console.log("The number of slider images does not match the number of accordion sections.");
 				}
-				
+
 				function animation(current, section, effect, speed, easingOption){
 					if(!active){
 						active = true;
@@ -113,7 +121,7 @@
 						$new = $('#slider > div:eq('+(section-1)+')', obj);
 						var currentWidth = $current.outerWidth();
 						var currentHeight = $current.outerHeight();
-						
+
 						if(effect=="random"){
 							var num = Math.floor(Math.random()*effects.length);
 							effect = effects[num];
@@ -186,7 +194,7 @@
 						}, speed);
 					}
 				}
-				
+
 				function sectionClicked(){
 					if(active == false) {
 						$objHeader = $(this, obj);
@@ -198,12 +206,12 @@
 								.removeClass('active')
 								.next('.link-content')
 								.slideUp();
-							
+
 							$objHeader
 								.addClass('active')
 								.next('.link-content')
 								.slideDown();
-							
+
 							animation(current, section, effect, speed, easingOption);
 						}
 						zPos++;
@@ -211,21 +219,31 @@
 						return false;
 					}
 				}
-				
+
 				function playSlider(current, effect, speed, easingOption){
 					var nextSection = checkEnd(current);
 					$('#accordion .link-header:eq('+nextSection+')', obj).trigger('click', sectionClicked);
 				}
-				
+
 				function startAuto(){
 					autoPlaying = setInterval(function(){playSlider(current, effect, speed, easingOption);}, interval);
 					obj.data('interval', autoPlaying);
 				}
-				
+
 				function stopAuto(){
 					clearInterval(obj.data('interval'));
 				}
-				
+
+				function leftNavigation() {
+					var nextSection = checkEnd(current - 2);
+					$('#accordion .link-header:eq('+nextSection+')', obj).trigger('click', sectionClicked);
+				}
+
+				function rightNavigation() {
+					var nextSection = checkEnd(current);
+					$('#accordion .link-header:eq('+nextSection+')', obj).trigger('click', sectionClicked);
+				}
+
 				function restartAuto(){
 					clearInterval(obj.data('interval'));
 					autoPlaying = setInterval(function(){
@@ -233,25 +251,26 @@
 					}, interval);
 					obj.data('interval', autoPlaying);
 				}
-				
+
 				function checkEnd(tempSection) {
 					if(tempSection == sliderCount) {
-						tempSection = 0;
-						return tempSection;
+						return 0;
+					} else if(tempSection < 0) {
+						return accordionCount -1;
 					} else {
 						return tempSection;
 					}
 				}
-				
+
 				function resetLayers() {
 					for(var i=sliderCount;i>0;i--){
 						$('#slider > div:eq('+(i-1)+')', obj).css('z-index',zPos);
 						zPos++;
 					}
 				}
-				
+
 			});
 		}
 	});
-	
+
 })(jQuery);
