@@ -54,7 +54,8 @@ The class of the navigation control buttons (string)
 
 
 ### Change Log
-
+Version 1.1
+	Added an option for creating navigation buttons
 Version 1.0
 	Added random effects for slide, over and all
 	Improved performance
