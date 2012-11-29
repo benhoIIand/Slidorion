@@ -1,5 +1,7 @@
 ## The Slidorion
 
+<a href="http://www.slidorion.com">Slidorion Website</a>
+
 A combination of an image slider and an accordion, the slidorion displays beautiful images along with a variable length description. With images linked to each tab, and accompanied by a large array of effects, the slidorion is a great alternative to the traditional jQuery slider.
 
 <a href="http://wordpress.org/extend/plugins/slidorion/">Slidorion is now available for WordPress</a>
