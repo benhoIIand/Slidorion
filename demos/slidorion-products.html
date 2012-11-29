@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+
+	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
+	<meta name="author" content="Ben Holland">
+
+	<title>Slidorion, A jQuery Plugin | jQuery Image Slider and jQuery Accordion | Random Demo</title>
+
+	<link rel="stylesheet" href="../css/style.css" />
+	<link rel="stylesheet" href="../css/slidorion.css" />
+	<link rel="stylesheet" href="../css/inset.css" />
+	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery.easing.js"></script>
+    <script src="../js/jquery.slidorion.min.js"></script>
+
+    <script>
+	$(function() {
+		$('#slidorion').slidorion({
+			interval: 5000,
+			effect: 'random'
+		});
+	});
+	</script>
+
+</head>
+
+<body>
+
+	<div id="header"><h1>SLIDORION - INSET</h1></div>
+
+	<div id="slidorion">
+
+		<div id="slider">
+			<div id="slide1" class="slide">
+				<img src="../img/basketball1.jpg" />
+			</div>
+			<div id="slide2" class="slide">
+				<img src="../img/basketball2.jpg" />
+			</div>
+			<div id="slide3" class="slide">
+				<img src="../img/basketball3.jpg" />
+			</div>
+		</div>
+
+		<div id="accordion">
+			<div class="link-header">Josh Smith</div>
+			<div class="link-content">
+				<p>Josh Smith (born December 5, 1985 in College Park, Georgia) is an American professional basketball player who currently plays for the Atlanta Hawks of the National Basketball Association (NBA).</p>
+
+				<p>Josh is one of five children born to Paulette and Pete Smith. His siblings are Walter, Phebe, Kasola and Shanti. His popular nickname is "J-Smoove"
+			</div>
+			<div class="link-header">Michael Jordan</div>
+			<div class="link-content">
+				<p>Michael Jeffrey Jordan, also known by his initials, MJ, is an American former professional basketball player, entrepreneur, and majority owner and chairman of the Charlotte Bobcats.</p>
+				<p>The National Basketball Association (NBA) website states, "By acclamation, Michael Jordan is the greatest basketball player of all time."</p>
+			</div>
+			<div class="link-header">LeBron James</div>
+			<div class="link-content">
+				<p>LeBron Raymone James, born December 30, 1984, nicknamed "King James", is an American professional basketball player for the Miami Heat of the National Basketball Association (NBA).</p>
+				<p>A 6 ft 8 in (2.03 m) small forward, he has been an NBA champion, the NBA Finals MVP, a three-time NBA MVP, and the NBA Rookie of the Year.</p>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="container" style="text-align:center">
+		<h3>Randomly cycles through all effects</h3>
+	</div>
+
+</body>
+
+</html>
