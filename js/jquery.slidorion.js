@@ -1,276 +1,397 @@
 /*
-* Slidorion, An Image Slider and Accordion Combined
-* Intructions: http://www.slidorion.com
-* Created by Ben Holland - http://www.ben-holland.co.uk
-* Version: 1.1
-* Copyright 2012 Ben Holland <benholland99@gmail.com>
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-(function($){
-	$.fn.extend({
-		slidorion: function(options) {
-			var defaults = {
-				autoPlay: true,
-				easing: '',
-				effect: 'fade',
-				first: 1,
-				interval: 5000,
-				hoverPause: false,
-				speed: 1000
-			};
+ * Slidorion, An Image Slider and Accordion Combined
+ * Intructions: http://www.slidorion.com
+ * Created by Ben Holland - http://www.benholland.me
+ * Version: 2.0.0
+ * Copyright 2013 Ben Holland <benholland99@gmail.com>
+ */
+(function($) {
+    'use strict';
 
-			var options = $.extend(defaults, options);
+    $.fn.extend({
+        slidorion: function(options) {
+            var defaults = {
+                autoPlay: true,
+                easing: '',
+                effect: 'random',
+                first: 1,
+                interval: 5000,
+                hoverPause: false,
+                speed: 1000
+            };
 
-			return this.each(function() {
+            var opts = $.extend(defaults, options);
 
-				var o = options;
-				var current = o.first;
-				var section = o.first+1;
-				var speed = o.speed;
-				var effect = o.effect;
-				var easingOption = o.easing;
-				var interval = o.interval;
-				var hoverPause = o.hoverPause;
-				var autoPlay = o.autoPlay;
-				var controlNav = o.controlNav;
-				var controlNavClass = o.controlNavClass;
-				var zPos = 1;
-				var sliderCount = 0;
-				var accordionCount = 0;
-				var intervalPause = false;
-				var active = false;
-				var prevEffect = "";
-				var obj = $(this);
-				var effects = new Array('fade','slideLeft','slideUp','slideRight','slideDown','overLeft','overRight','overUp','overDown');
-				var slideEffects = new Array('slideLeft','slideUp','slideRight','slideDown');
-				var overEffects = new Array('overLeft','overRight','overUp','overDown');
-				var wipeEffects = new Array('wipeDown','wipeUp');
-				var wipeFadeEffects = new Array('wipeDownFade','wipeUpFade');
-				var wipeAllEffects = new Array('wipeDown','wipeUp','wipeDownFade','wipeUpFade');
+            return this.each(function() {
 
-				sliderCount = $('#slider > div', obj).size();
-				obj.data('slideCount', sliderCount);
+                var current         = opts.first,
+                    section         = opts.first + 1,
+                    effect          = opts.effect,
+                    interval        = opts.interval,
+                    controlNav      = opts.controlNav,
+                    controlNavClass = opts.controlNavClass,
+                    zPos            = 1,
+                    intervalPause   = false,
+                    active          = false,
+                    prevEffect      = '',
+                    obj             = $(this),
+                    $linkHeaders = obj.find('.link-header'),
+                    $linkContent = obj.find('.link-content');
 
-				accordionCount = $('#accordion > .link-header', obj).size();
-				obj.data('accordCount', accordionCount);
+                /**
+                 * Effects
+                 */
+                var effects         = ['fade', 'slideLeft', 'slideUp', 'slideRight', 'slideDown', 'overLeft', 'overRight', 'overUp', 'overDown'],
+                    slideEffects    = ['slideLeft', 'slideUp', 'slideRight', 'slideDown'],
+                    overEffects     = ['overLeft', 'overRight', 'overUp', 'overDown'],
+                    wipeEffects     = ['wipeDown', 'wipeUp'],
+                    wipeFadeEffects = ['wipeDownFade', 'wipeUpFade'],
+                    wipeAllEffects  = ['wipeDown', 'wipeUp', 'wipeDownFade', 'wipeUpFade'];
 
-				if(sliderCount==accordionCount){
-					if(autoPlay==true){
-						var autoPlaying = setInterval(function(){
-							playSlider(current, effect, speed, easingOption);
-						}, interval);
-						obj.data('interval', autoPlaying);
-					}
-					if(hoverPause==true && autoPlay==true){
-						obj.hover(function(){
-							intervalPause = true;
-							stopAuto();
-						}, function(){
-							intervalPause = false;
-							restartAuto();
-						});
-					}
+                var sliderCount = $('#slider > div', obj).length,
+                    accordionCount = $('#accordion > .link-header', obj).length;
 
-					resetLayers();
+                if (sliderCount === accordionCount) {
+                    if (opts.autoPlay === true) {
+                        var autoPlaying = setInterval(function() {
+                            playSlider(current, effect, opts.speed, opts.easingOption);
+                        }, interval);
+                        obj.data('interval', autoPlaying);
+                    }
+                    if (opts.hoverPause === true && opts.autoPlay === true) {
+                        obj.hover(function() {
+                            intervalPause = true;
+                            stopAuto();
+                        }, function() {
+                            intervalPause = false;
+                            restartAuto();
+                        });
+                    }
 
-					$('#slider > div:eq('+(current-1)+')', obj).css('z-index',zPos);
-					zPos++;
+                    resetLayers();
 
-					if(effect != "fade" || effect != "none"){
-						$('#slider > div', obj).css({'top':'0','left':'-600px'});
-						$('#slider > div:eq('+(current-1)+')', obj).css({'top':'0','left':'0'});
-					}
+                    $('#slider > div:eq(' + (current - 1) + ')', obj).css('z-index', zPos);
+                    zPos++;
 
-					$('.link-content', obj).hide();
-					$('#accordion .link-header:eq('+(current-1)+')', obj)
-						.addClass('active')
-						.next()
-						.show();
+                    if (effect !== 'fade' || effect !== 'none') {
+                        $('#slider > div', obj).css({
+                            'top': '0',
+                            'left': '-600px'
+                        });
+                        $('#slider > div:eq(' + (current - 1) + ')', obj).css({
+                            'top': '0',
+                            'left': '0'
+                        });
+                    }
 
-					if(controlNav) {
-						obj.append('<div class="'+controlNavClass+' '+controlNavClass+'-left"></div><div class="'+controlNavClass+' '+controlNavClass+'-right"></div>');
-						$('.'+controlNavClass+'-left').click(leftNavigation);
-						$('.'+controlNavClass+'-right').click(rightNavigation);
-					}
+                    $('.link-content', obj).hide();
+                    $('#accordion .link-header:eq(' + (current - 1) + ')', obj).addClass('active').next().show();
 
-					$(".link-header", obj).click(sectionClicked);
+                    if (controlNav) {
+                        obj.append('<div class="' + controlNavClass + ' ' + controlNavClass + '-left"></div><div class="' + controlNavClass + ' ' + controlNavClass + '-right"></div>');
+                        $('.' + controlNavClass + '-left').click(leftNavigation);
+                        $('.' + controlNavClass + '-right').click(rightNavigation);
+                    }
 
-				} else {
-					alert("The number of slider images does not match the number of accordion sections.");
-					console.log("The number of slider images does not match the number of accordion sections.");
-				}
+                    $('.link-header', obj).click(sectionClicked);
 
-				function animation(current, section, effect, speed, easingOption){
-					if(!active){
-						active = true;
-						if(autoPlay==true && intervalPause==false) {
-							restartAuto();
-						}
-						$current = $('#slider > div:eq('+(current-1)+')', obj);
-						$new = $('#slider > div:eq('+(section-1)+')', obj);
-						var currentWidth = $current.outerWidth();
-						var currentHeight = $current.outerHeight();
+                } else {
+                    alert('The number of slider images does not match the number of accordion sections.');
+                    console.log('The number of slider images does not match the number of accordion sections.');
+                }
 
-						if(effect=="random"){
-							var num = Math.floor(Math.random()*effects.length);
-							effect = effects[num];
-							while(effect == prevEffect){
-								var num = Math.floor(Math.random()*effects.length);
-								effect = effects[num];
-							}
-						}else if(effect=="slideRandom"){
-							var num = Math.floor(Math.random()*slideEffects.length);
-							effect = slideEffects[num];
-							while(effect == prevEffect){
-								var num = Math.floor(Math.random()*slideEffects.length);
-								effect = slideEffects[num];
-							}
-						}else if(effect=="overRandom"){
-							var num = Math.floor(Math.random()*overEffects.length);
-							effect = overEffects[num];
-							while(effect == prevEffect){
-								var num = Math.floor(Math.random()*overEffects.length);
-								effect = overEffects[num];
-							}
-						}
-						prevEffect = effect;
-						switch(effect){
-							case 'fade':
-								$new.css({'z-index':zPos,'top':'0','left':'0','display':'none'}).fadeIn(speed);
-								break;
-							case 'slideLeft':
-								$new.css({'left':currentWidth,'top':'0','opacity':'1','z-index':zPos});
-								$current.animate({'left':'-='+currentWidth,'top':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								$new.animate({'left':'-='+currentWidth,'top':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								break;
-							case 'slideRight':
-								$new.css({'left':'-'+currentWidth+'px','top':'0','opacity':'1','z-index':zPos});
-								$current.animate({'left':'+='+currentWidth,'top':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								$new.animate({'left':'+='+currentWidth,'top':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								break;
-							case 'slideUp':
-								$new.css({'top':currentHeight,'left':'0','opacity':'1','z-index':zPos});
-								$current.animate({'top':'-='+currentHeight,'left':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								$new.animate({'top':'-='+currentHeight,'left':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								break;
-							case 'slideDown':
-								$new.css({'top':'-'+currentHeight+'px','left':'0','opacity':'1','z-index':zPos});
-								$current.animate({'top':'+='+currentHeight,'left':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								$new.animate({'top':'+='+currentHeight,'left':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								break;
-							case 'overLeft':
-								$new.css({'left':currentWidth,'top':'0','opacity':'1','z-index':zPos});
-								$new.animate({'left':'-='+currentWidth,'top':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								break;
-							case 'overRight':
-								$new.css({'left':'-'+currentWidth+'px','top':'0','opacity':'1','z-index':zPos});
-								$new.animate({'left':'+='+currentWidth,'top':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								break;
-							case 'overUp':
-								$new.css({'top':currentHeight,'left':'0','opacity':'1','z-index':zPos});
-								$new.animate({'top':'-='+currentHeight,'left':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								break;
-							case 'overDown':
-								$new.css({'top':'-'+currentHeight+'px','left':'0','opacity':'1','z-index':zPos});
-								$new.animate({'top':'+='+currentHeight,'left':'0','opacity':'1'}, {queue:true, duration:speed, easing:easingOption});
-								break;
-							case 'none':
-								$new.css({'z-index':zPos});
-								break;
-						}
-						setTimeout(function(){
-							active = false;
-						}, speed);
-					}
-				}
+                var randomEffectMap = {
+                    'random': effects,
+                    'slideRandom': slideEffects,
+                    'overRandom': overEffects
+                };
 
-				function sectionClicked(){
-					if(active == false) {
-						$objHeader = $(this, obj);
-						var section = ($objHeader.index()/2)+1;
-						if(section==current){
-							return false;
-						}else{
-							$('.link-header.active', obj)
-								.removeClass('active')
-								.next('.link-content')
-								.slideUp();
+                var getRandomEffect = function(effect, arr) {
+                    effect = arr[~~(Math.random() * arr.length)];
+                    return effect == prevEffect ? getRandomEffect(effect, arr) : effect;
+                };
 
-							$objHeader
-								.addClass('active')
-								.next('.link-content')
-								.slideDown();
+                function animation(current, section, effect, speed, easingOption) {
+                    if (!active) {
+                        active = true;
 
-							animation(current, section, effect, speed, easingOption);
-						}
-						zPos++;
-						current = section;
-						return false;
-					}
-				}
+                        if (opts.autoPlay === true && opts.intervalPause === false) {
+                            restartAuto();
+                        }
 
-				function playSlider(current, effect, speed, easingOption){
-					var nextSection = checkEnd(current);
-					$('#accordion .link-header:eq('+nextSection+')', obj).trigger('click', sectionClicked);
-				}
+                        var $current      = $('#slider > div:eq(' + (current - 1) + ')', obj),
+                            $new          = $('#slider > div:eq(' + (section - 1) + ')', obj),
+                            currentWidth  = $current.outerWidth(),
+                            currentHeight = $current.outerHeight();
 
-				function startAuto(){
-					autoPlaying = setInterval(function(){playSlider(current, effect, speed, easingOption);}, interval);
-					obj.data('interval', autoPlaying);
-				}
+                        if(randomEffectMap[effect]) {
+                            effect = getRandomEffect(effect, randomEffectMap[effect]);
+                        }
 
-				function stopAuto(){
-					clearInterval(obj.data('interval'));
-				}
+                        prevEffect = effect;
+                        switch (effect) {
+                        case 'fade':
+                            $new.css({
+                                'z-index': zPos,
+                                'top': '0',
+                                'left': '0',
+                                'display': 'none'
+                            }).fadeIn(speed);
+                            break;
+                        case 'slideLeft':
+                            $new.css({
+                                'left': currentWidth,
+                                'top': '0',
+                                'opacity': '1',
+                                'z-index': zPos
+                            });
+                            $current.animate({
+                                'left': '-=' + currentWidth,
+                                'top': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            $new.animate({
+                                'left': '-=' + currentWidth,
+                                'top': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            break;
+                        case 'slideRight':
+                            $new.css({
+                                'left': '-' + currentWidth + 'px',
+                                'top': '0',
+                                'opacity': '1',
+                                'z-index': zPos
+                            });
+                            $current.animate({
+                                'left': '+=' + currentWidth,
+                                'top': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            $new.animate({
+                                'left': '+=' + currentWidth,
+                                'top': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            break;
+                        case 'slideUp':
+                            $new.css({
+                                'top': currentHeight,
+                                'left': '0',
+                                'opacity': '1',
+                                'z-index': zPos
+                            });
+                            $current.animate({
+                                'top': '-=' + currentHeight,
+                                'left': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            $new.animate({
+                                'top': '-=' + currentHeight,
+                                'left': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            break;
+                        case 'slideDown':
+                            $new.css({
+                                'top': '-' + currentHeight + 'px',
+                                'left': '0',
+                                'opacity': '1',
+                                'z-index': zPos
+                            });
+                            $current.animate({
+                                'top': '+=' + currentHeight,
+                                'left': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            $new.animate({
+                                'top': '+=' + currentHeight,
+                                'left': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            break;
+                        case 'overLeft':
+                            $new.css({
+                                'left': currentWidth,
+                                'top': '0',
+                                'opacity': '1',
+                                'z-index': zPos
+                            });
+                            $new.animate({
+                                'left': '-=' + currentWidth,
+                                'top': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            break;
+                        case 'overRight':
+                            $new.css({
+                                'left': '-' + currentWidth + 'px',
+                                'top': '0',
+                                'opacity': '1',
+                                'z-index': zPos
+                            });
+                            $new.animate({
+                                'left': '+=' + currentWidth,
+                                'top': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            break;
+                        case 'overUp':
+                            $new.css({
+                                'top': currentHeight,
+                                'left': '0',
+                                'opacity': '1',
+                                'z-index': zPos
+                            });
+                            $new.animate({
+                                'top': '-=' + currentHeight,
+                                'left': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            break;
+                        case 'overDown':
+                            $new.css({
+                                'top': '-' + currentHeight + 'px',
+                                'left': '0',
+                                'opacity': '1',
+                                'z-index': zPos
+                            });
+                            $new.animate({
+                                'top': '+=' + currentHeight,
+                                'left': '0',
+                                'opacity': '1'
+                            }, {
+                                queue: true,
+                                duration: speed,
+                                easing: easingOption
+                            });
+                            break;
+                        case 'none':
+                            $new.css({
+                                'z-index': zPos
+                            });
+                            break;
+                        }
+                        setTimeout(function() {
+                            active = false;
+                        }, speed);
+                    }
+                }
 
-				function leftNavigation() {
-					var nextSection = checkEnd(current - 2);
-					$('#accordion .link-header:eq('+nextSection+')', obj).trigger('click', sectionClicked);
-				}
+                function sectionClicked() {
+                    if (!active) {
+                        var section = ($(this).index() / 2) + 1;
 
-				function rightNavigation() {
-					var nextSection = checkEnd(current);
-					$('#accordion .link-header:eq('+nextSection+')', obj).trigger('click', sectionClicked);
-				}
+                        if (section === current) return false;
 
-				function restartAuto(){
-					clearInterval(obj.data('interval'));
-					autoPlaying = setInterval(function(){
-						playSlider(current, effect, speed, easingOption);
-					}, interval);
-					obj.data('interval', autoPlaying);
-				}
+                        $linkHeaders.removeClass('active').next('.link-content').slideUp();
+                        $linkHeaders.eq(section-1).addClass('active').next('.link-content').slideDown();
+                        animation(current, section, effect, opts.speed, opts.easing);
 
-				function checkEnd(tempSection) {
-					if(tempSection == sliderCount) {
-						return 0;
-					} else if(tempSection < 0) {
-						return accordionCount -1;
-					} else {
-						return tempSection;
-					}
-				}
+                        zPos++;
+                        current = section;
 
-				function resetLayers() {
-					for(var i=sliderCount;i>0;i--){
-						$('#slider > div:eq('+(i-1)+')', obj).css('z-index',zPos);
-						zPos++;
-					}
-				}
+                        return false;
+                    }
+                }
 
-			});
-		}
-	});
+                function playSlider(current, effect, speed, easingOption) {
+                    var nextSection = checkEnd(current);
+                    $('#accordion .link-header:eq(' + nextSection + ')', obj).trigger('click', sectionClicked);
+                }
+
+                function startAuto() {
+                    autoPlaying = setInterval(function() {
+                        playSlider(current, effect, speed, easingOption);
+                    }, interval);
+                    obj.data('interval', autoPlaying);
+                }
+
+                function stopAuto() {
+                    clearInterval(obj.data('interval'));
+                }
+
+                function leftNavigation() {
+                    var nextSection = checkEnd(current - 2);
+                    $('#accordion .link-header:eq(' + nextSection + ')', obj).trigger('click', sectionClicked);
+                }
+
+                function rightNavigation() {
+                    var nextSection = checkEnd(current);
+                    $('#accordion .link-header:eq(' + nextSection + ')', obj).trigger('click', sectionClicked);
+                }
+
+                function restartAuto() {
+                    clearInterval(obj.data('interval'));
+                    autoPlaying = setInterval(function() {
+                        playSlider(current, effect, speed, easingOption);
+                    }, interval);
+                    obj.data('interval', autoPlaying);
+                }
+
+                function checkEnd(tempSection) {
+                    if (tempSection === sliderCount) {
+                        return 0;
+                    } else if (tempSection < 0) {
+                        return accordionCount - 1;
+                    } else {
+                        return tempSection;
+                    }
+                }
+
+                function resetLayers() {
+                    for (var i = sliderCount; i > 0; i--) {
+                        $('#slider > div:eq(' + (i - 1) + ')', obj).css('z-index', zPos);
+                        zPos++;
+                    }
+                }
+
+            });
+        }
+    });
 
 })(jQuery);
