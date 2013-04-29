@@ -208,6 +208,7 @@
 
                         setTimeout(function() {
                             active = false;
+                            resetZpos($new);
                         }, opts.speed);
                     }
                 };
@@ -224,8 +225,6 @@
 
                         zPos++;
                         current = section;
-
-                        // checkZpos();
 
                         return false;
                     }
@@ -272,12 +271,16 @@
                     }
                 };
 
-                var checkZpos = function() {
-                    if(zPos > sliderCount * 3) resetLayers();
+                var resetZpos = function($el) {
+                    if(zPos > sliderCount * 3) {
+                        zPos = 2;
+                        $('#slider > div').css('z-index', '1');
+                        $el.css('z-index', zPos);
+                    }
                 };
 
                 var resetLayers = function() {
-                    for (var i = sliderCount; i > 0; i--) {
+                    for (var i = sliderCount-1; i > 0; i--) {
                         $('#slider > div:eq(' + (i - 1) + ')', obj).css('z-index', zPos);
                         zPos++;
                     }
