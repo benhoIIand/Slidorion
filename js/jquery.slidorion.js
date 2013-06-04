@@ -104,18 +104,6 @@
                         $slides.eq(current).css('z-index', zPos);
                         zPos++;
 
-                        if (effect !== 'fade' || effect !== 'none') {
-                            $slides.css({
-                                'top': '0',
-                                'left': '-600px' // change
-                            });
-
-                            $slides.eq(current).css({
-                                'top': '0',
-                                'left': '0'
-                            });
-                        }
-
                         $linkContent.hide();
                         $linkHeaders.eq(current).addClass('active').next().show();
 

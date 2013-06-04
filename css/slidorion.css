@@ -6,10 +6,8 @@
 	left: 50%;
 	margin-left: -384px;
 	padding: 10px;
-	background: #cbcbcb;
-	border: 1px solid #bbb;
-	-webkit-box-shadow: 0 0 34px #bbb;
-	-moz-box-shadow: 0 0 34px #bbb;
+	background: #CBCBCB;
+	border: 1px solid #BBB;
 	box-shadow: 0 0 34px #bbb;
 }
 
@@ -21,10 +19,12 @@
 	overflow: hidden;		/* Hides the animations */
 }
 
-.slider div {
-	position:absolute;
-	width:100%;
-	height:100%;
+.slider .slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .accordion {
@@ -32,8 +32,6 @@
 	height: 400px;			/* Set to image height */
 	font-family: Verdana;
 	background: #eee;
-	-webkit-box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
-	-moz-box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
 	box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
 	position: relative;
 	z-index:999;
