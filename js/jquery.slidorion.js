@@ -3,13 +3,14 @@
  * Intructions: http://www.slidorion.com
  * Created by Ben Holland - http://www.benholland.me
  * Version: 2.0.0
- * Copyright 2013 Ben Holland <benholland99@gmail.com>
+ * Copyright 2013 Ben Holland <hi@benhlland.me>
  */
 (function($) {
     'use strict';
 
     $.fn.extend({
         slidorion: function(options) {
+
             var defaults = {
                 autoPlay: true,
                 easing: '',
@@ -24,8 +25,8 @@
 
             return this.each(function() {
 
-                var current         = opts.first,
-                    section         = opts.first + 1,
+                var current         = opts.first - 1,
+                    section         = opts.first,
                     effect          = opts.effect,
                     interval        = opts.interval,
                     controlNav      = opts.controlNav,
@@ -35,9 +36,18 @@
                     active          = false,
                     prevEffect      = '',
                     obj             = $(this),
-                    $linkHeaders    = $('.link-header', obj),
-                    $linkContent    = $('.link-content', obj),
                     autoPlaying     = null;
+
+
+                /**
+                 * Cache elements
+                 */
+                var $slider      = $('.slider', obj),
+                    $accordion   = $('.accordion', obj),
+                    $slides      = $slider.find('.slide'),
+                    $linkHeaders = $accordion.find('.header'),
+                    $linkContent = $accordion.find('.content');
+
 
                 /**
                  * Effects
@@ -58,8 +68,8 @@
                     easing: opts.easingOption
                 };
 
-                var sliderCount = $('#slider > div', obj).length,
-                    accordionCount = $('#accordion > .link-header', obj).length;
+                var sliderCount = $slides.length,
+                    accordionCount = $linkHeaders.length;
 
                 var randomEffectMap = {
                     'random': effects,
@@ -69,12 +79,16 @@
 
                 var init = function() {
                     if (sliderCount === accordionCount) {
+
                         if (opts.autoPlay === true) {
+
                             autoPlaying = setInterval(function() {
                                 playSlider(current, effect);
                             }, interval);
+
                             obj.data('interval', autoPlaying);
                         }
+
                         if (opts.hoverPause === true && opts.autoPlay === true) {
                             obj.hover(function() {
                                 intervalPause = true;
@@ -87,22 +101,23 @@
 
                         resetLayers();
 
-                        $('#slider > div:eq(' + (current - 1) + ')', obj).css('z-index', zPos);
+                        $slides.eq(current).css('z-index', zPos);
                         zPos++;
 
                         if (effect !== 'fade' || effect !== 'none') {
-                            $('#slider > div', obj).css({
+                            $slides.css({
                                 'top': '0',
-                                'left': '-600px'
+                                'left': '-600px' // change
                             });
-                            $('#slider > div:eq(' + (current - 1) + ')', obj).css({
+
+                            $slides.eq(current).css({
                                 'top': '0',
                                 'left': '0'
                             });
                         }
 
-                        $('.link-content', obj).hide();
-                        $('#accordion .link-header:eq(' + (current - 1) + ')', obj).addClass('active').next().show();
+                        $linkContent.hide();
+                        $linkHeaders.eq(current).addClass('active').next().show();
 
                         if (controlNav) {
                             obj.append('<div class="' + controlNavClass + ' ' + controlNavClass + '-left"></div><div class="' + controlNavClass + ' ' + controlNavClass + '-right"></div>');
@@ -110,10 +125,9 @@
                             $('.' + controlNavClass + '-right').click(rightNavigation);
                         }
 
-                        $('.link-header', obj).click(sectionClicked);
+                        $linkHeaders.click(sectionClicked);
 
                     } else {
-                        window.alert('The number of slider images does not match the number of accordion sections.');
                         console.log('The number of slider images does not match the number of accordion sections.');
                     }
                 };
@@ -131,8 +145,8 @@
                             restartAuto();
                         }
 
-                        var $current      = $('#slider > div:eq(' + (current - 1) + ')', obj),
-                            $new          = $('#slider > div:eq(' + (section - 1) + ')', obj),
+                        var $current      = $slides.eq(current),
+                            $new          = $slides.eq(section),
                             currentWidth  = $current.outerWidth(),
                             currentHeight = $current.outerHeight();
 
@@ -215,12 +229,12 @@
 
                 var sectionClicked = function() {
                     if (!active) {
-                        var section = ($(this).index() / 2) + 1;
+                        var section = $(this).index() / 2;
 
                         if (section === current) return false;
 
-                        $linkHeaders.removeClass('active').next('.link-content').slideUp();
-                        $linkHeaders.eq(section-1).addClass('active').next('.link-content').slideDown();
+                        $linkHeaders.removeClass('active').next('.content').slideUp();
+                        $linkHeaders.eq(section).addClass('active').next('.content').slideDown();
                         animation(current, section, effect);
 
                         zPos++;
@@ -231,7 +245,7 @@
                 };
 
                 var playSlider = function(current, effect) {
-                    $('#accordion .link-header:eq(' + getNextSlide(current) + ')', obj).trigger('click', sectionClicked);
+                    $linkHeaders.eq(getNextSlide(current)).trigger('click', sectionClicked);
                 };
 
                 var startAuto = function() {
@@ -247,18 +261,20 @@
 
                 var restartAuto = function() {
                     clearInterval(obj.data('interval'));
+
                     autoPlaying = setInterval(function() {
                         playSlider(current, effect);
                     }, interval);
+
                     obj.data('interval', autoPlaying);
                 };
 
                 var leftNavigation = function() {
-                    $('#accordion .link-header:eq(' + getNextSlide(current - 2) + ')', obj).trigger('click', sectionClicked);
+                    $linkHeaders.eq(getNextSlide(current)).trigger('click', sectionClicked);
                 };
 
                 var rightNavigation = function() {
-                    $('#accordion .link-header:eq(' + getNextSlide(current) + ')', obj).trigger('click', sectionClicked);
+                    $linkHeaders.eq(getNextSlide(current)).trigger('click', sectionClicked);
                 };
 
                 var getNextSlide = function(tempSection) {
@@ -274,14 +290,15 @@
                 var resetZpos = function($el) {
                     if(zPos > sliderCount * 3) {
                         zPos = 2;
-                        $('#slider > div').css('z-index', '1');
+                        $slides.css('z-index', '1');
                         $el.css('z-index', zPos);
+                        zPos++;
                     }
                 };
 
                 var resetLayers = function() {
                     for (var i = sliderCount-1; i > 0; i--) {
-                        $('#slider > div:eq(' + (i - 1) + ')', obj).css('z-index', zPos);
+                        $slides.eq(i).css('z-index', zPos);
                         zPos++;
                     }
                 };

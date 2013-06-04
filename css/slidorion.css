@@ -1,7 +1,7 @@
 /* Slidorion Stylesheet */
-#slidorion {
-	width: 768px;			/* Set to slidorion width. Is equal to #slider + #accordion width */
-	height: 400px;			/* Set to slidorion height. Is equal to #slider and #accordion height */
+.slidorion {
+	width: 768px;			/* Set to slidorion width. Is equal to .slider + .accordion width */
+	height: 400px;			/* Set to slidorion height. Is equal to .slider and .accordion height */
 	position: relative;
 	left: 50%;
 	margin-left: -384px;
@@ -13,7 +13,7 @@
 	box-shadow: 0 0 34px #bbb;
 }
 
-#slider {
+.slider {
 	width: 488px;			/* Set to slider width */
 	height: 400px;			/* Set to slider height */
 	position: relative;
@@ -21,13 +21,13 @@
 	overflow: hidden;		/* Hides the animations */
 }
 
-#slider > div {
+.slider div {
 	position:absolute;
 	width:100%;
 	height:100%;
 }
 
-#accordion {
+.accordion {
 	width: 280px;			/* Set to accordion width */
 	height: 400px;			/* Set to image height */
 	font-family: Verdana;
@@ -41,7 +41,7 @@
 	float: left;
 }
 
-#accordion > .link-header {
+.accordion .header {
 	padding: 8px 14px;
 	font-size: 12px;
 	font-weight: bold;
@@ -52,27 +52,25 @@
 	background: -o-linear-gradient(top, #ededed 59%,#dcdcdc 100%);
 	background: -ms-linear-gradient(top, #ededed 59%,#dcdcdc 100%);
 	background: linear-gradient(top, #ededed 59%,#dcdcdc 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#dcdcdc',GradientType=0 );
 	border-top: 1px solid #ccc;
 }
 
-#accordion > .link-header:first-child {
-	border-top:none;
+.accordion .header:first-child {
+	border-top: none;
 }
 
-#accordion > .link-header:hover {
-	background: #ededed;
+.accordion .header:hover {
+	background: #EDEDED;
 	cursor: pointer;
 }
 
-#accordion > .link-header.active {
+.accordion .header.active {
 	border-bottom: none;
 	background: #676767 !important;
-	filter: none;
-	color: #fff;
+	color: #FFF;
 }
 
-#accordion > .link-content {
+.accordion .content {
 	height: 257px;			/* This height needs to be changed as it depends on the accordion height and number of tabs */
 	font-weight: normal;
 	font-size: 13px;
@@ -86,11 +84,10 @@
 	background: -o-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
 	background: -ms-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
 	background: linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#ffffff',GradientType=0 );
 	overflow:auto;
 }
 
-#slidorion .nav {
+.slidorion .nav {
     position: absolute;
     top: 200px;
     width: 16px;
@@ -100,11 +97,11 @@
     cursor: pointer;
 }
 
-#slidorion .nav-left {
+.slidorion .nav-left {
 	left: 30px;
 }
 
-#slidorion .nav-right {
+.slidorion .nav-right {
 	right: 310px;
 	background-position: -16px 0;
 }
