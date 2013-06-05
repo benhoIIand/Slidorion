@@ -1,14 +1,14 @@
 /* Slidorion Stylesheet */
 .slidorion {
+	position: relative;
 	width: 768px;			/* Set to slidorion width. Is equal to .slider + .accordion width */
 	height: 400px;			/* Set to slidorion height. Is equal to .slider and .accordion height */
-	position: relative;
 	left: 50%;
-	margin-left: -384px;
-	padding: 10px;
 	background: #CBCBCB;
+	padding: 10px;
 	border: 1px solid #BBB;
 	box-shadow: 0 0 34px #bbb;
+	margin-left: -384px;
 }
 
 .slider {
@@ -85,7 +85,7 @@
 	overflow:auto;
 }
 
-.slidorion .nav {
+.slidorion .slidorion-nav {
     position: absolute;
     top: 200px;
     width: 16px;

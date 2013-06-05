@@ -1,6 +1,6 @@
 {
   "name": "Slidorion",
-  "version": "0.2.0",
+  "version": "1.2.0",
   "description": "Slider and Accordion combined",
   "main": "Gruntfile.js",
   "repository": {

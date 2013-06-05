@@ -2,7 +2,7 @@
  * Slidorion, An Image Slider and Accordion Combined
  * Intructions: http://www.slidorion.com
  * Created by Ben Holland - http://www.benholland.me
- * Version: 2.0.0
+ * Version: 1.2.0
  * Copyright 2013 Ben Holland <hi@benhlland.me>
  */
 (function($) {
@@ -13,6 +13,8 @@
 
             var defaults = {
                 autoPlay: true,
+                controlNav: false,
+                controlNavClass: 'slidorion-nav',
                 easing: '',
                 effect: 'random',
                 first: 1,
