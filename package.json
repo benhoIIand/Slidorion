@@ -1,0 +1,17 @@
+{
+  "name": "Slidorion",
+  "version": "1.2.0",
+  "description": "Slider and Accordion combined",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hollandben/Slidorion"
+  },
+  "readmeFilename": "readme.md",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-watch": "latest"
+  }
+}

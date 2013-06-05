@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-
 <head>
-
+	<meta charset="utf-8">
 	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
 	<meta name="author" content="Ben Holland">
 
@@ -11,116 +10,42 @@
 	<link rel="stylesheet" href="css/slidorion.css" />
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
 
-	<script src="js/jquery.min.js"></script>
-    <script src="js/jquery.slidorion.min.js"></script>
-
-    <script>
-	$(function(){
-		$('#slidorion').slidorion({
-			effect: 'slideRandom',
-			hoverPause: true,
-			interval: 20000,
-			speed: 800,
-			controlNav: false,
-			controlNavClass: 'nav'
-		});
-
-		$(window).scroll(function(){
-			$el = $('#download-box');
-			if ($(this).scrollTop() > 540 && $el.css('position') != 'fixed'){
-				$('#download-box').css({'position': 'fixed', 'top': '10px'});
-			}else if($(this).scrollTop() < 540 && $el.css('position') == 'fixed'){
-				$('#download-box').css({'position': 'absolute', 'top': '10px'});
-			}
-		});
-	});
-	function trackDownload(){_gaq.push(['_trackPageview', '/downloads/slidorion']);}
-	</script>
-	<script type="text/javascript">
-	  window.___gcfg = {lang: 'en-GB'};
-	  (function() {
-		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		po.src = 'https://apis.google.com/js/plusone.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	  })();
-	(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) {return;}
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=250647338304374";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-
 </head>
-
 <body>
 
 	<div id="header"><h1>SLIDORION</h1></div>
 
-	<div id="slidorion">
-
-		<div id="slider">
-			<div id="slide1" class="slide">
-				<div class="content">
-					<h2>New Features</h2>
-					<h3>There's been some pretty important changes to Slidorion. Here are some of these changes...</h3>
-					<ul>
-						<li><h4>Allows embedded HTML</h4></li>
-						<li><h4>New random effect (slide, over and all)</h4></li>
-						<li><h4>Easier usability</h4></li>
-						<li><h4>Improved performance</h4></li>
-						<li><h4>Bug fixes; click disabled during transition</h4></li>
-					</ul>
-				</div>
-			</div>
-			<div id="slide2" class="slide">
-				<img src="img/spiderman.jpg" width="488" height="400" />
-			</div>
-			<div id="slide3" class="slide">
-				<div class="content">
-					<h1>Background Image with HTML Text</h1><br />
-					<h3>You can give each individual slide a unique background image, allow for full customisation.</h3><br /><br />
-					<h3>For a cool background effect, check out this <a href="demos/slidorion-background-demo.html">demo</a></h3>
-				</div>
-			</div>
-			<div id="slide4" class="slide">
-				<img src="img/spiderman.jpg" width="488" height="400" />
-			</div>
+	<div id="slidorion" class="slidorion">
+		<div class="slider">
+			<div class="slide"><img src="img/boxing.jpg" /></div>
+			<div class="slide"><img src="img/athletics.jpg" /></div>
+			<div class="slide"><img src="img/basketball.jpg" /></div>
 		</div>
 
-		<div id="accordion">
-			<div class="link-header">New Features</div>
-			<div class="link-content">
-				<p><strong>Slidorion</strong> is a combination of an image slider and an accordion; displaying beautiful content through various effects.</p>
-				<p>Version 1.0 sees some vital changes and bugs fixes. Most important of these is allow HTML content to be displayed within each slide.</p>
-				<p>Slidorion was created by Ben Holland. Follow me on <a href="http://www.twitter.com/hollandben" target="_blank">Twitter</a></p>
+		<div class="accordion">
+			<div class="header">Muhammad Ali</div>
+			<div class="content">
+				<p>Muhammad Ali (born Cassius Marcellus Clay, Jr.) is an American former professional boxer, philanthropist and social activist. Nicknamed "The Greatest", and widely considered the best heavyweight of all-time, Ali was involved in several historic boxing matches.</p>
+				<p>Ali become the first and only three-time lineal World Heavyweight Champion.</p>
 			</div>
-			<div class="link-header">A Simple Image</div>
-			<div class="link-content">
-				<p>Slidorion caters for all kinds of content; from HTML to simple images such as this.</p>
-				<p>Make sure images are the correct size, or give that slide a background to prevent objects behind seeping through.</p>
-				<p>Check out the next slide to see an example on how to use the transparent background</p>
+			<div class="header">Usain Bolt</div>
+			<div class="content">
+				<p>Usain Bolt is a Jamaican sprinter widely regarded as the fastest person ever. He is the first man to hold both the 100 and 200 metres world records since automatic time measurements became mandatory in 1977.</p>
+				<p>His achievements have earned him the media nickname "Lightning Bolt", and awards including the IAAF World Athlete of the Year and Track &amp; Field Athlete of the Year</p>
 			</div>
-			<div class="link-header">Background Image w/ HTML</div>
-			<div class="link-content">
-				<p>Each slide can be styled individually, giving you the attach to add custom backgrounds and colours to them to make Slidorion exactly what you need it to be.</p>
-				<p>For a cool background effect, check out this <a href="demos/slidorion-background-demo.html">demo</a></p>
-			</div>
-			<div class="link-header">Another Simple Image</div>
-			<div class="link-content">
-				<p>Each slide can be styled individually, giving you the attach to add custom backgrounds and colours to them to make Slidorion exactly what you need it to be.</p>
-				<p>For a cool background effect, check out this <a href="demos/slidorion-background-demo.html">demo</a></p>
+			<div class="header">Michael Jordan</div>
+			<div class="content">
+				<p>Michael Jeffrey Jordan (MJ), is an American former professional basketball player, entrepreneur, and majority owner and chairman of the Charlotte Bobcats.</p>
+				<p>MJ's individual accolades and accomplishments include five MVP awards, fourteen NBA All-Star Game appearances and many more. He was inducted into the Basketball Hall of Fame in 2009.</p>
 			</div>
 		</div>
-
 	</div>
 
 	<div id="container">
 
 		<div id="download-box">
-			<a href="slidorion.zip" class="download" onClick="trackDownload()">Download</a>
-			<p style="margin-top:0;">Version 1.1</p>
+			<a href="https://github.com/hollandben/Slidorion/archive/master.zip" class="download" onClick="trackDownload()">Download</a>
+			<p style="margin-top:0;">Version 1.2</p>
 			<h3>Download the Slidorion now!</h3>
 			<p>Slidorion was created by Ben Holland, student and part time web developer at <a href="http://www.tidydesign.com" target="_blank">Tidy Design</a>. Follow me on <a href="http://www.twitter.com/hollandben" target="_blank">Twitter</a> or check out my <a href="http://www.ben-holland.co.uk/blog/" target="_blank">blog.</a></p>
 			<div class="social-media"><div class="fb-like" data-href="http://www.slidorion.com/" data-send="false" data-layout="box_count" data-show-faces="false" data-font="trebuchet ms"></div></div><div class="social-media"><g:plusone size="tall"></g:plusone></div><div class="social-media"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Slidorion - An image slider and an accordion combined. A great #jQuery plugin" data-count="vertical" data-via="hollandben">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script></div>
@@ -191,15 +116,15 @@
 
 	&lt;div id="accordion"&gt;
 		&lt;div class="link-header"&gt;New Features&lt;/div&gt;
-		&lt;div class="link-content"&gt;
+		&lt;div class="content"&gt;
 			&lt;!-- content --&gt;
 		&lt;/div&gt;
 		&lt;div class="link-header"&gt;A Simple Image&lt;/div&gt;
-		&lt;div class="link-content"&gt;
+		&lt;div class="content"&gt;
 			&lt;!-- content --&gt;
 		&lt;/div&gt;
 		&lt;div class="link-header"&gt;Background Image w/ HTML&lt;/div&gt;
-		&lt;div class="link-content"&gt;
+		&lt;div class="content"&gt;
 			&lt;!-- content --&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
@@ -226,6 +151,13 @@ $(document).ready(function(){
 
 		<div id="changelog">
 			<h2>Change Log</h2>
+			<h3>Version 1.2</h3>
+			<ul class="changes">
+				<li>Added slide selection from URL</li>
+				<li>Fixed z-index issues</li>
+				<li>Code factor</li>
+				<li>Change markup for easier use</li>
+			</ul>
 			<h3>Version 1.1</h3>
 			<ul class="changes">
 				<li>Added an option for creating navigation buttons</li>
@@ -265,25 +197,41 @@ $(document).ready(function(){
 
 	</div>
 
-	<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-26555091-1']);
-	  _gaq.push(['_trackPageview']);
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+	<script src="dist/jquery.min.js"></script>
+    <script src="dist/jquery.slidorion.min.js"></script>
+
+    <script>
+	$(function(){
+		$('#slidorion').slidorion({
+			effect: 'slideRandom',
+			hoverPause: true,
+			interval: 20000,
+			speed: 800,
+			controlNav: false,
+			controlNavClass: 'nav'
+		});
+	});
 	</script>
 
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-41507759-1', 'slidorion.com');
+		ga('send', 'pageview');
+	</script>
+
+	</script>
 		<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) {return;}
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=250647338304374";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+		<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=250647338304374";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 
 </body>
 
