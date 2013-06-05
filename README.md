@@ -7,7 +7,6 @@ A combination of an image slider and an accordion, the slidorion displays beauti
 <a href="http://wordpress.org/extend/plugins/slidorion/">Slidorion is now available for WordPress</a>
 
 
-
 ### Effects
 
 fade
@@ -38,6 +37,11 @@ none
 
 
 ### Change Log
+* Version 1.2
+    * Added slide selection from URL
+    * Fixed z-index issues
+    * Code factor
+    * Change markup for easier use
 * Version 1.1
     * Added an option for creating navigation buttons
 * Version 1.0

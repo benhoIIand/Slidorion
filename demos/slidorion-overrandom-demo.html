@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-
 <head>
-
+	<meta charset="utf-8">
 	<meta name="description" content="The Slidorion is a great new jQuery plugin built to combine an image slider and an accordion. Accompanied by a range of features and effects, the Slidorion a fantastic and slick plugin that is compatible with all browsers.">
 	<meta name="author" content="Ben Holland">
 
@@ -10,10 +9,44 @@
 	<link rel="stylesheet" href="../css/style.css" />
 	<link rel="stylesheet" href="../css/slidorion.css" />
 	<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
 
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/jquery.easing.js"></script>
-    <script src="../js/jquery.slidorion.min.js"></script>
+	<div id="header"><h1>SLIDORION - OVERLAP RANDOM</h1></div>
+
+	<div id="slidorion" class="slidorion">
+		<div class="slider">
+			<div class="slide"><img src="../img/boxing.jpg" /></div>
+			<div class="slide"><img src="../img/athletics.jpg" /></div>
+			<div class="slide"><img src="../img/basketball.jpg" /></div>
+		</div>
+
+		<div class="accordion">
+			<div class="header">Muhammad Ali</div>
+			<div class="content">
+				<p>Muhammad Ali (born Cassius Marcellus Clay, Jr.) is an American former professional boxer, philanthropist and social activist. Nicknamed "The Greatest", and widely considered the best heavyweight of all-time, Ali was involved in several historic boxing matches.</p>
+				<p>Ali become the first and only three-time lineal World Heavyweight Champion.</p>
+			</div>
+			<div class="header">Usain Bolt</div>
+			<div class="content">
+				<p>Usain Bolt is a Jamaican sprinter widely regarded as the fastest person ever. He is the first man to hold both the 100 and 200 metres world records since automatic time measurements became mandatory in 1977.</p>
+				<p>His achievements have earned him the media nickname "Lightning Bolt", and awards including the IAAF World Athlete of the Year and Track &amp; Field Athlete of the Year</p>
+			</div>
+			<div class="header">Michael Jordan</div>
+			<div class="content">
+				<p>Michael Jeffrey Jordan (MJ), is an American former professional basketball player, entrepreneur, and majority owner and chairman of the Charlotte Bobcats.</p>
+				<p>MJ's individual accolades and accomplishments include five MVP awards, fourteen NBA All-Star Game appearances and many more. He was inducted into the Basketball Hall of Fame in 2009.</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="container" style="text-align:center">
+		<h3>Randomly cycles through all the overlap effects</h3>
+	</div>
+
+	<script src="../dist/jquery.min.js"></script>
+	<script src="../dist/jquery.easing.js"></script>
+    <script src="../dist/jquery.slidorion.min.js"></script>
 
     <script>
 	$(function() {
@@ -24,50 +57,5 @@
 	});
 	</script>
 
-</head>
-
-<body>
-
-	<div id="header"><h1>SLIDORION - OVERLAP RANDOM</h1></div>
-
-	<div id="slidorion">
-
-		<div id="slider">
-			<div id="slide1" class="slide">
-				<img src="../img/spiderman.jpg" width="488" height="400" />
-			</div>
-			<div id="slide2" class="slide">
-				<img src="../img/kick-ass.jpg" width="488" height="400" />
-			</div>
-			<div id="slide3" class="slide">
-				<img src="../img/thor.jpg" width="488" height="400" />
-			</div>
-		</div>
-
-		<div id="accordion">
-			<div class="link-header">Spiderman</div>
-			<div class="link-content">
-				<p>Based on Marvel Comics' superhero character, this is a story of Peter Parker who is a nerdy high-schooler; bullied by jocks and can't confess his crush for his stunning neighborhood girl Mary Jane Watson.</p>
-				<p>To say his life is "miserable" is an understatement. But one day while on an excursion to a laboratory a runaway radioactive spider bites him...</p>
-			</div>
-			<div class="link-header">Kick Ass</div>
-			<div class="link-content">
-				<p>Dave Lizewski is an unnoticed high school student and comic book fan with a few friends and who lives alone with his father. His life is not very difficult and his personal trials not that overwhelming.</p>
-				<p>However, one day he makes the simple decision to become a super-hero even though he has no powers or training.</p>
-			</div>
-			<div class="link-header">Thor</div>
-			<div class="link-content">
-				<p>The warrior Thor is cast out of the fantastic realm of Asgard by his father Odin for his arrogance and sent to Earth to live among humans.</p>
-				<p>Falling in love with scientist Jane Foster teaches Thor much-needed lessons, and his new-found strength comes into play as a villain from his homeland sends dark forces toward Earth.</p>
-			</div>
-		</div>
-
-	</div>
-	
-	<div id="container" style="text-align:center">
-		<h3>Randomly cycles through all the overlap effects</h3>
-	</div>
-
 </body>
-
 </html>
