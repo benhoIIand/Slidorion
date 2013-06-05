@@ -17,26 +17,26 @@
 
 	<div id="slidorion" class="slidorion">
 		<div class="slider">
-			<div class="slide"><img src="img/kung-fu-panda.jpg" /></div>
-			<div class="slide"><img src="img/the-dark-knight.jpg" /></div>
-			<div class="slide"><img src="img/hot-fuzz.jpg" /></div>
+			<div class="slide"><img src="img/boxing.jpg" /></div>
+			<div class="slide"><img src="img/athletics.jpg" /></div>
+			<div class="slide"><img src="img/basketball.jpg" /></div>
 		</div>
 
 		<div class="accordion">
-			<div class="header">Panda 2</div>
+			<div class="header">Muhammad Ali</div>
 			<div class="content">
-				<p>In the Valley of Peace, Po Ping is revelling in his fulfilled dreams as he serves as the fabled Dragon Warrior protecting his home with his heroes now his closest friends. However, Po and company learn that the murderous Lord Shen of Gongman City is threatening the land with a fearsome new weapon that could mean the end of kung fu forever.</p>
-				<a href="http://www.imdb.com/title/tt1302011/" target="_blank">Read more</a>
+				<p>Muhammad Ali (born Cassius Marcellus Clay, Jr.) is an American former professional boxer, philanthropist and social activist. Nicknamed "The Greatest", and widely considered the best heavyweight of all-time, Ali was involved in several historic boxing matches.</p>
+				<p>Ali become the first and only three-time lineal World Heavyweight Champion.</p>
 			</div>
-			<div class="header">Dark Knight</div>
+			<div class="header">Usain Bolt</div>
 			<div class="content">
-				<p>Batman raises the stakes in his war on crime. With the help of Lieutenant Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the city streets. But they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as The Joker.</p>
-				<a href="http://www.imdb.com/title/tt0468569/" target="_blank">Read more</a>
+				<p>Usain Bolt is a Jamaican sprinter widely regarded as the fastest person ever. He is the first man to hold both the 100 and 200 metres world records since automatic time measurements became mandatory in 1977.</p>
+				<p>His achievements have earned him the media nickname "Lightning Bolt", and awards including the IAAF World Athlete of the Year and Track &amp; Field Athlete of the Year</p>
 			</div>
-			<div class="header">Hot Fuzz</div>
+			<div class="header">Michael Jordan</div>
 			<div class="content">
-				<p>Top London cop, PC Nicholas Angel is good. Too good. And to stop the rest of his team looking bad, he is reassigned to the quiet town of Sandford. Everything seems quiet for Angel, until two actors are found decapitated. It is called an accident, but Angel isn't going to accept that, especially when more and more people turn up dead.</p>
-				<a href="http://www.imdb.com/title/tt0425112/" target="_blank">Read more</a>
+				<p>Michael Jeffrey Jordan (MJ), is an American former professional basketball player, entrepreneur, and majority owner and chairman of the Charlotte Bobcats.</p>
+				<p>MJ's individual accolades and accomplishments include five MVP awards, fourteen NBA All-Star Game appearances and many more. He was inducted into the Basketball Hall of Fame in 2009.</p>
 			</div>
 		</div>
 	</div>
@@ -44,7 +44,7 @@
 	<div id="container">
 
 		<div id="download-box">
-			<a href="slidorion.zip" class="download" onClick="trackDownload()">Download</a>
+			<a href="https://github.com/hollandben/Slidorion/archive/master.zip" class="download" onClick="trackDownload()">Download</a>
 			<p style="margin-top:0;">Version 1.2</p>
 			<h3>Download the Slidorion now!</h3>
 			<p>Slidorion was created by Ben Holland, student and part time web developer at <a href="http://www.tidydesign.com" target="_blank">Tidy Design</a>. Follow me on <a href="http://www.twitter.com/hollandben" target="_blank">Twitter</a> or check out my <a href="http://www.ben-holland.co.uk/blog/" target="_blank">blog.</a></p>
@@ -213,26 +213,25 @@ $(document).ready(function(){
 	});
 	</script>
 
-
-	<script type="text/javascript">
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-26555091-1']);
-	  _gaq.push(['_trackPageview']);
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-41507759-1', 'slidorion.com');
+		ga('send', 'pageview');
 	</script>
 
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) {return;}
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=250647338304374";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+	</script>
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=250647338304374";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 
 </body>
 
