@@ -21,11 +21,12 @@
                 speed: 1000
             };
 
-            var opts = $.extend(defaults, options);
+            var opts       = $.extend(defaults, options),
+                firstSlide = window.location.hash.match(/slidorion/i) ? location.hash.split('/')[1] - 1 : null;
 
             return this.each(function() {
 
-                var current         = opts.first - 1,
+                var current         = firstSlide || opts.first - 1,
                     section         = opts.first,
                     effect          = opts.effect,
                     interval        = opts.interval,
