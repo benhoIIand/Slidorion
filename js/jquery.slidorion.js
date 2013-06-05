@@ -157,7 +157,7 @@
 
                         var animateSlides = function($el, settings) {
                             if($el instanceof Array) {
-                                $.each($el, function(){ animateSlides($(this)); });
+                                $.each($el, function(){ animateSlides($(this), settings); });
                                 return;
                             }
 
@@ -170,24 +170,25 @@
                         };
 
                         prevEffect = effect;
+
                         switch (effect) {
                             case 'fade':
                                 $new.css({'z-index': zPos, 'top': '0', 'left': '0', 'display': 'none'}).fadeIn(opts.speed);
                                 break;
                             case 'slideLeft':
-                                changeSlideCSS($new, {left: currentWidth});
+                                changeSlideCSS($new, {left: currentWidth, top: 0});
                                 animateSlides([$current, $new], {left: '-='+ currentWidth});
                                 break;
                             case 'slideRight':
-                                changeSlideCSS($new, {left: '-'+ currentWidth +'px'});
+                                changeSlideCSS($new, {left: '-'+ currentWidth +'px', top: 0});
                                 animateSlides([$current, $new], {left: '+='+ currentWidth});
                                 break;
                             case 'slideUp':
-                                changeSlideCSS($new, {top: currentWidth});
+                                changeSlideCSS($new, {top: currentHeight, left: 0});
                                 animateSlides([$current, $new], {top: '-='+ currentHeight});
                                 break;
                             case 'slideDown':
-                                changeSlideCSS($new, {top: '-'+ currentHeight +'px'});
+                                changeSlideCSS($new, {top: '-'+ currentHeight +'px', left: 0});
                                 animateSlides([$current, $new], {top: '+='+ currentHeight});
                                 break;
                             case 'overLeft':
@@ -261,7 +262,7 @@
                 };
 
                 var leftNavigation = function() {
-                    $linkHeaders.eq(getNextSlide(current)).trigger('click', sectionClicked);
+                    $linkHeaders.eq(getNextSlide(current - 2)).trigger('click', sectionClicked);
                 };
 
                 var rightNavigation = function() {
@@ -269,6 +270,8 @@
                 };
 
                 var getNextSlide = function(tempSection) {
+                    tempSection++;  // increment to account for Array index starting at 0
+
                     if (tempSection === sliderCount) {
                         return 0;
                     } else if (tempSection < 0) {

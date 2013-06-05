@@ -1,19 +1,19 @@
 /* Slidorion Stylesheet */
 .slidorion {
 	position: relative;
-	width: 768px;			/* Set to slidorion width. Is equal to .slider + .accordion width */
+	width: 870px;			/* Set to slidorion width. Is equal to .slider + .accordion width */
 	height: 400px;			/* Set to slidorion height. Is equal to .slider and .accordion height */
 	left: 50%;
 	background: #CBCBCB;
 	padding: 10px;
 	border: 1px solid #BBB;
 	box-shadow: 0 0 34px #bbb;
-	margin-left: -384px;
+	margin-left: -436px;
 }
 
 .slider {
-	width: 488px;			/* Set to slider width */
-	height: 400px;			/* Set to slider height */
+	width: 68%;
+	height: 100%;
 	position: relative;
 	float: left;
 	overflow: hidden;		/* Hides the animations */
@@ -28,8 +28,8 @@
 }
 
 .accordion {
-	width: 280px;			/* Set to accordion width */
-	height: 400px;			/* Set to image height */
+	width: 32%;
+	height: 100%;
 	font-family: Verdana;
 	background: #eee;
 	box-shadow: -3px 0px 3px -1px rgba(51,51,51,0.3);
@@ -69,10 +69,10 @@
 }
 
 .accordion .content {
-	height: 257px;			/* This height needs to be changed as it depends on the accordion height and number of tabs */
+	height: 258px;			/* This height needs to be changed as it depends on the accordion height and number of tabs */
 	font-weight: normal;
-	font-size: 13px;
-	line-height:20px;
+	font-size: 12px;
+	line-height: 20px;
 	margin: 0;
 	padding: 16px;
 	border: none;
@@ -85,6 +85,10 @@
 	overflow:auto;
 }
 
+.accordion .content p {
+	margin-bottom: 10px;
+}
+
 .slidorion .slidorion-nav {
     position: absolute;
     top: 200px;
@@ -95,11 +99,11 @@
     cursor: pointer;
 }
 
-.slidorion .nav-left {
+.slidorion .slidorion-nav-left {
 	left: 30px;
 }
 
-.slidorion .nav-right {
+.slidorion .slidorion-nav-right {
 	right: 310px;
 	background-position: -16px 0;
 }

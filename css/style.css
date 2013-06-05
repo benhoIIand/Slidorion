@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -24,7 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -135,19 +135,6 @@ a:link, a:active, a:visited {
 	text-align:left;
 	font-size:60px;
 }
-#slidorion2 {
-	width: 768px;			/* Set to slidorion width. Is equal to #slider + #accordion width */
-	height: 400px;			/* Set to slidorion height. Is equal to #slider and #accordion height */
-	position: relative;
-	left: 50%;
-	margin-left: -384px;
-	padding: 10px;
-	background: #cbcbcb;
-	border: 1px solid #bbb;
-	-webkit-box-shadow: 0 0 34px #bbb;
-	-moz-box-shadow: 0 0 34px #bbb;
-	box-shadow: 0 0 34px #bbb;
-}
 strong {
 	font-weight:bold;
 }
@@ -160,7 +147,7 @@ strong {
 	width:78%;
 	margin-bottom:30px;
 }
-#container > div > pre { 
+#container > div > pre {
 	background:#E2DBD1;
 	border:1px solid #D1BFA6;
 	color:#333;
