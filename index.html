@@ -102,32 +102,26 @@
 &lt;script src="js/jquery.easing.js"&gt;&lt;/script&gt;
 &lt;script src="js/jquery.slidorion.min.js"&gt;&lt;/script&gt;
 			</pre>
-			<a href="js/jquery.slidorion.min.js">Download Slidorion</a><br />
+			<a href="dist/jquery.slidorion.min.js">Download Slidorion</a><br />
 			<a href="js/jquery.easing.js">Download Easing</a> - v1.3 Required<br /><br />
 			<h3>HTML Structure</h3>
 			<p>The required selector tags are shown. This is the structure that must be maintained throughout. The accordion and slider can change positions though, i.e. accordion on the left</p><br />
 			<pre>
-&lt;div id="slidorion"&gt;
-	&lt;div id="slider"&gt;
-		&lt;div class="slide"&gt;&lt;/div&gt;
-		&lt;div class="slide"&gt;&lt;/div&gt;
-		&lt;div class="slide"&gt;&lt;/div&gt;
-	&lt;/div&gt;
+&lt;div id="slidorion" class="slidorion"&gt;
+    &lt;div class="slider"&gt;
+        &lt;div class="slide"&gt;&lt;img src="img/boxing.jpg" /&gt;&lt;/div&gt;
+        &lt;div class="slide"&gt;&lt;img src="img/athletics.jpg" /&gt;&lt;/div&gt;
+        &lt;div class="slide"&gt;&lt;img src="img/basketball.jpg" /&gt;&lt;/div&gt;
+    &lt;/div&gt;
 
-	&lt;div id="accordion"&gt;
-		&lt;div class="link-header"&gt;New Features&lt;/div&gt;
-		&lt;div class="content"&gt;
-			&lt;!-- content --&gt;
-		&lt;/div&gt;
-		&lt;div class="link-header"&gt;A Simple Image&lt;/div&gt;
-		&lt;div class="content"&gt;
-			&lt;!-- content --&gt;
-		&lt;/div&gt;
-		&lt;div class="link-header"&gt;Background Image w/ HTML&lt;/div&gt;
-		&lt;div class="content"&gt;
-			&lt;!-- content --&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
+    &lt;div class="accordion"&gt;
+        &lt;div class="header"&gt;Muhammad Ali&lt;/div&gt;
+        &lt;div class="content"&gt;&lt;-- CONTENT GOES HERE --&gt;&lt;/div&gt;
+        &lt;div class="header"&gt;Usain Bolt&lt;/div&gt;
+        &lt;div class="content"&gt;&lt;-- CONTENT GOES HERE --&gt;&lt;/div&gt;
+        &lt;div class="header"&gt;Michael Jordan&lt;/div&gt;
+        &lt;div class="content"&gt;&lt;-- CONTENT GOES HERE --&gt;&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 			</pre>
 			<h3>Basic Initialising</h3>
@@ -198,6 +192,7 @@ $(document).ready(function(){
 	</div>
 
 	<script src="dist/jquery.min.js"></script>
+	<script src="js/jquery.easing.js"></script>
     <script src="dist/jquery.slidorion.min.js"></script>
 
     <script>
