@@ -1,6 +1,6 @@
 ## The Slidorion
 
-### This repository and library is no longer actively maintained
+### This repository and library is no longer actively maintained - 15/11/2014
 
 <a href="http://www.slidorion.com">Slidorion Website</a>
 
